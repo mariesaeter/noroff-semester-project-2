@@ -26,6 +26,7 @@
   },
   "homepage": "https://github.com/mariesaeter/noroff-semester-project-2#readme",
   "devDependencies": {
+    "eslint": "^8.39.0",
     "prettier": "^2.8.8"
   }
 }
