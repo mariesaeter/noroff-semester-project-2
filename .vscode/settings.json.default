@@ -1,0 +1,16 @@
+{
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.wordWrap": "on",
+  "workbench.colorTheme": "Ocean Eyes Dark",
+  "liveServer.settings.donotVerifyTags": true,
+  "terminal.integrated.defaultProfile.osx": "bash",
+  "editor.formatOnSave": true,
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  },
+  "eslint.validate": ["javascript"],
+  "settingsSync.ignoredSettings": [],
+  "settingsSync.ignoredExtensions": [
+    
+  ]
+}
