@@ -9,7 +9,9 @@
     "format": "prettier -w src/**/*.js",
     "lint": "eslint src/**/*.js",
     "lint-fix": "eslint src/**/*js --cache --fix",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "build": "sass src/scss:dist/css",
+    "watch": "sass --watch src/scss:dist/css"
   },
   "repository": {
     "type": "git",
