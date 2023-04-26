@@ -1,6 +1,6 @@
 {
   "name": "noroff-semester-project-2",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "An auction page where you can sell and bid on items",
   "type": "module",
   "main": "src/index.js",
