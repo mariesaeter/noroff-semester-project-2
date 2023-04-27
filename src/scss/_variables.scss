@@ -1,0 +1,107 @@
+// Variables
+
+// start gray-color-variables
+$gray-100: #fafafa;
+$gray-200: #ebebeb;
+$gray-900: #525252;
+$black: #171717;
+// end gray-color-variables
+
+// start color-variables
+$purple: #91557c;
+$green: #9cb168;
+$orange: #e86a02;
+$red: #d42222;
+// end color-variables
+
+// start fusv-disable
+$purple-200: #efe7ef;
+$purple-300: #e7dae7;
+$purple-400: #d2b2c7;
+$purple-600: #744463;
+
+$green-400: #dfe3ca;
+
+$green-600: #2c8f31;
+// end fusv-disable
+
+// start theme-color-variables
+$primary: $green;
+$secondary: $purple;
+$success: $green-600;
+$warning: $orange;
+// end theme-color-variables
+
+// Body
+//
+// Settings for the `<body>` element.
+$body-bg: $gray-100;
+$body-color: $black;
+
+// Links
+//
+// Style anchor elements
+$link-color: $secondary;
+
+// Components
+//
+// Define common padding and border radius sizes and more.
+
+// start border-variables
+$border-width: 2px;
+
+$border-color: $primary;
+// end border-variables
+
+// start box-shadow-variables
+$box-shadow: 0 0.5rem 1.5rem rgba($black, 0.15);
+// end box-shadow-variables
+
+// Typography
+//
+// font-family
+@import url("https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap");
+
+// start font-variables
+$font-family-sans-serif: "Karla", sans-serif;
+$font-family-monospace: "Karla", monospace;
+
+$font-size-base: 1.125rem;
+// end font-variables
+
+// start type-variables
+$text-muted: $gray-900;
+// end type-variables
+
+// Forms
+//
+// start form-label-variables
+$form-label-font-size: 1rem;
+$form-label-font-weight: $font-weight-light;
+$form-label-color: $gray-900;
+// end form-label-variables
+
+// start form-input-variables
+$input-bg: $white;
+$input-color: $black;
+$input-border-color: $primary;
+
+$input-focus-border-color: $secondary;
+$input-placeholder-color: $gray-900;
+// end form-input-variables
+
+// Navs
+//
+// start nav-variables
+$nav-link-font-size: 1.375rem;
+$nav-link-font-weight: $font-weight-bold;
+$nav-link-color: $black;
+$nav-link-hover-color: $secondary;
+// end nav-variables
+
+// Modals
+//
+// start modal-variables
+$modal-content-bg: $gray-100;
+$modal-content-border-radius: $border-radius;
+// end modal-variables
