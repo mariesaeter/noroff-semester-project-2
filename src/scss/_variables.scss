@@ -31,6 +31,7 @@ $secondary: $purple;
 $success: $green-600;
 $warning: $orange;
 $light: $green-400;
+$info: $gray-200;
 // end theme-color-variables
 
 // Body
@@ -52,10 +53,11 @@ $link-color: $secondary;
 $border-width: 2px;
 
 $border-color: $primary;
+$border-color-translucent: none;
 // end border-variables
 
 // start box-shadow-variables
-$box-shadow: 0 0.5rem 1.5rem rgba($black, 0.15);
+$box-shadow: 0 0.5rem 1.5rem rgba($gray-900, 0.15);
 // end box-shadow-variables
 
 // Typography
@@ -76,6 +78,7 @@ $text-muted: $gray-900;
 
 // Buttons + Forms
 //
+
 $input-btn-focus-box-shadow: none;
 
 // Buttons
@@ -94,12 +97,15 @@ $form-label-color: $gray-900;
 // end form-label-variables
 
 // start form-input-variables
+
 $input-bg: #fff;
-$input-color: $black;
-$input-border-color: $primary;
+$input-border-color: $green;
+$input-box-shadow: none;
 
 $input-focus-border-color: $secondary;
 $input-placeholder-color: $gray-900;
+
+$btn-font-weight: 300;
 // end form-input-variables
 
 // Navs

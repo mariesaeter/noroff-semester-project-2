@@ -29,6 +29,11 @@
             ><img class="logo" src="/src/images/bokvenn-logo.png" />
             <p class="d-none d-md-block m-0 align-self-center ps-2">BOKMYNT</p>
           </a>
+          <div
+            class="nav-item nav-profile align-self-lg-center d-lg-none small ms-auto d-none"
+          >
+            Hi <span class="nav-profile-name">Name</span>
+          </div>
           <button
             class="navbar-toggler border-0 shadow-none collapsed d-flex flex-column justify-content-between d-lg-none"
             type="button"
@@ -88,7 +93,93 @@
         </div>
       </nav>
     </header>
-    <main></main>
+    <main>
+      <div class="container">
+        <div class="row">
+          <div class="col-12 mx-0 px-0">
+            <form class="w-100 d-flex">
+              <input
+                type="search"
+                class="form control ps-4 pe-2 py-1 border-0 border-bottom w-100"
+                placeholder="Search"
+                aria-label="Search"
+              />
+              <button
+                type="button"
+                class="btn btn-light px-4 rounded-0 bg-info border-0 border-bottom text-muted"
+              >
+                search
+              </button>
+            </form>
+          </div>
+        </div>
+        <h1 class="text-center mt-3 mb-2">Listings</h1>
+        <div class="container justify-content-center">
+          <div class="row row-cols-1 row-cols-md-2 g-3">
+            <div class="col">
+              <div
+                class="card my-2 border bg-transparent p-1 d-inline-flex w-100 flex-row"
+              >
+                <div class="bg-light rounded-start">
+                  <div class="card-img" style="width: 125px">Image</div>
+                </div>
+                <div class="card-body w-100">
+                  <h5 class="card-title">Card title</h5>
+                  <p class="card-text">
+                    <span class="text-muted">bid: </span
+                    ><span id="current-bid" class="text-secondary fw-bold"
+                      >$7.43</span
+                    ><small id="bid-hours" class="text-danger ms-1"
+                      >(2 hours left)</small
+                    >
+                  </p>
+                  <a
+                    href="/src/listing/index.html"
+                    class="btn btn-secondary w-100 text-uppercase"
+                    >see listing</a
+                  >
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <div
+                class="card my-2 border bg-transparent p-1 d-inline-flex w-100 flex-row"
+              >
+                <div class="bg-light rounded-start">
+                  <div class="card-img" style="width: 125px">Image</div>
+                </div>
+                <div class="card-body w-100">
+                  <h5 class="card-title">Card title</h5>
+                  <p class="card-text">
+                    <span class="text-muted">bid: </span
+                    ><span id="current-bid" class="text-secondary fw-bold"
+                      >$7.43</span
+                    ><small id="bid-hours" class="text-danger ms-1"
+                      >(2 hours left)</small
+                    >
+                  </p>
+                  <a
+                    href="/src/listing/index.html"
+                    class="btn btn-secondary w-100 text-uppercase"
+                    >see listing</a
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row m-2 mt-4 justify-content-center">
+        <button
+          type="button"
+          class="link-secondary text-decoration-underline bg-transparent border-0 w-50"
+          aria-label="see more listings"
+        >
+          See more listings
+        </button>
+      </div>
+    </main>
     <footer></footer>
   </body>
 </html>
