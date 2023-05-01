@@ -1,0 +1,11 @@
+.nav-link {
+  color: $black !important;
+}
+
+.nav-link:hover {
+  color: $secondary !important;
+}
+
+.nav-item .active {
+  font-weight: 300 !important;
+}

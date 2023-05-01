@@ -30,6 +30,7 @@ $primary: $green;
 $secondary: $purple;
 $success: $green-600;
 $warning: $orange;
+$light: $green-400;
 // end theme-color-variables
 
 // Body
@@ -73,6 +74,17 @@ $font-size-base: 1.125rem;
 $text-muted: $gray-900;
 // end type-variables
 
+// Buttons + Forms
+//
+$input-btn-focus-box-shadow: none;
+
+// Buttons
+//
+// start btn-variables
+$btn-box-shadow: none;
+$btn-focus-box-shadow: none;
+// end btn-variables
+
 // Forms
 //
 // start form-label-variables
@@ -93,11 +105,16 @@ $input-placeholder-color: $gray-900;
 // Navs
 //
 // start nav-variables
-$nav-link-font-size: 1.375rem;
 $nav-link-font-weight: 700;
 $nav-link-color: $black;
 $nav-link-hover-color: $secondary;
 // end nav-variables
+
+// Navbar
+//
+// start navbar-variables
+$navbar-light-color: $black;
+// end navbar-variables
 
 // Modals
 //
