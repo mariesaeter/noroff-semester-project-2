@@ -51,6 +51,11 @@ $link-color: $secondary;
 
 // start border-variables
 $border-width: 2px;
+$border-widths: (
+  10: 10px,
+  30: 30px,
+  50: 50px,
+);
 
 $border-color: $primary;
 $border-color-translucent: none;
