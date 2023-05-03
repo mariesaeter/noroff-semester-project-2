@@ -11,6 +11,9 @@ input:focus {
   outline: none;
   box-shadow: inset 1em 0em $secondary;
 }
+.form-inputs:focus {
+  border-left: solid 20px $secondary;
+}
 
 .logo {
   height: 50px;

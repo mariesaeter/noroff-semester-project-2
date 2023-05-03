@@ -10798,6 +10798,10 @@ input:focus {
   box-shadow: inset 1em 0em #91557c;
 }
 
+.form-inputs:focus {
+  border-left: solid 20px #91557c;
+}
+
 .logo {
   height: 50px;
 }
