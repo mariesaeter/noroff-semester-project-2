@@ -3,6 +3,11 @@ import { methodPost as method } from "../tools/constants.mjs";
 import * as bootstrap from "/node_modules/bootstrap/dist/js/bootstrap.js";
 window.bootstrap = bootstrap;
 
+/**
+ *
+ * @param {Object} user | Data from form input gathered in "../forms/setRegisterForm.mjs"
+ * @returns
+ */
 export async function registerUser(user) {
   const body = JSON.stringify(user);
 
@@ -16,6 +21,7 @@ export async function registerUser(user) {
     });
 
     const json = await response.json();
+
     if (response.ok) {
       const successModal = new bootstrap.Modal("#registerSuccessModal");
       successModal.show();
