@@ -19,6 +19,8 @@
       src="https://kit.fontawesome.com/a2324745d3.js"
       crossorigin="anonymous"
     ></script>
+
+    <script src="/src/js/index.mjs" defer type="module"></script>
   </head>
   <body>
     <header>
@@ -103,46 +105,56 @@
           <div class="col-12 col-xl-7 bg-light p-3 p-lg-4">
             <div class="bg-body border-start border-10 p-2 py-5 h-100 px-md-4">
               <h1 class="text-center">Sign in</h1>
-              <form class="w-100 mt-4">
-                <div class="form-floating">
+              <form
+                class="w-100 mt-4 formNeedsValidation"
+                id="loginForm"
+                novalidate
+              >
+                <div class="form-floating mb-3">
                   <input
                     type="email"
-                    class="form-control ps-3 pe-2 pb-1 pt-4 w-100 rounded mb-3 form-inputs"
+                    name="email"
+                    class="form-control ps-3 pe-2 pb-1 pt-4 w-100 rounded form-inputs"
                     id="inputEmail"
                     aria-label="Email"
                     placeholder="example@mail.com"
+                    required
                   />
                   <label for="inputEmail" class="ps-4"
                     >Email (example@mail.com)</label
                   >
+                  <div class="invalid-feedback">Incorrect email</div>
                 </div>
-                <div class="form-floating">
+                <div class="form-floating mb-3">
                   <input
                     type="password"
-                    class="form-control ps-3 pe-2 pb-1 pt-4 w-100 rounded mb-3 form-inputs"
+                    name="password"
+                    class="form-control ps-3 pe-2 pb-1 pt-4 w-100 rounded form-inputs"
                     id="inputPassword"
                     aria-label="Password"
                     placeholder="password"
+                    required
                   />
                   <label for="inputPassword" class="ps-4">Password</label>
+                  <div class="invalid-feedback">Incorrect password</div>
                 </div>
                 <button
-                  type="button"
+                  type="submit"
                   class="btn btn-secondary px-4 rounded border-0 w-100 text-uppercase"
                 >
-                  Sign in
+                  Login
                 </button>
               </form>
               <h2 class="mt-4 text-center">If you don't have an account yet</h2>
               <div
                 class="d-flex mt-3 mt-lg-0 align-self-lg-center ms-lg-auto justify-content-center"
               >
-                <a class="text-decoration-none" href="/src/login/index.html"
-                  >Sign in</a
+                <a class="text-decoration-none" href="/src/register/"
+                  >Register user</a
                 >
                 <span class="mx-1">or</span>
-                <a class="text-decoration-none" href="/src/register/index.html"
-                  >Register</a
+                <a class="text-decoration-none" href="/src/index.html"
+                  >Browse listings</a
                 >
               </div>
             </div>

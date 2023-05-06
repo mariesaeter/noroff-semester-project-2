@@ -1,4 +1,4 @@
-import * as listeners from "./forms/setRegisterForm.mjs";
+import * as listeners from "./forms/index.mjs";
 
 export default function router() {
   const path = location.pathname;
@@ -6,6 +6,9 @@ export default function router() {
   switch (path) {
     case "/src/register/":
       listeners.setRegisterFormListener();
+      break;
+    case "/src/login/":
+      listeners.setLoginFormListener();
       break;
   }
 }
