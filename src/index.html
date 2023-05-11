@@ -18,6 +18,8 @@
       src="https://kit.fontawesome.com/a2324745d3.js"
       crossorigin="anonymous"
     ></script>
+    <!-- Js script -->
+    <script type="module" src="/src/js/index.mjs" defer></script>
   </head>
   <body>
     <header>
@@ -115,58 +117,10 @@
         </div>
         <h1 class="text-center mt-3 mb-2">Listings</h1>
         <div class="container justify-content-center">
-          <div class="row row-cols-1 row-cols-md-2 g-3">
-            <div class="col">
-              <div
-                class="card my-2 border bg-transparent p-1 d-inline-flex w-100 flex-row"
-              >
-                <div class="bg-light rounded-start">
-                  <div class="card-img" style="width: 125px">Image</div>
-                </div>
-                <div class="card-body w-100">
-                  <h5 class="card-title">Card title</h5>
-                  <p class="card-text">
-                    <span class="text-muted">bid: </span
-                    ><span id="current-bid" class="text-secondary fw-bold"
-                      >$7.43</span
-                    ><small id="bid-hours" class="text-danger ms-1"
-                      >(2 hours left)</small
-                    >
-                  </p>
-                  <a
-                    href="/src/listing/index.html"
-                    class="btn btn-secondary w-100 text-uppercase"
-                    >see listing</a
-                  >
-                </div>
-              </div>
-            </div>
-            <div class="col">
-              <div
-                class="card my-2 border bg-transparent p-1 d-inline-flex w-100 flex-row"
-              >
-                <div class="bg-light rounded-start">
-                  <div class="card-img" style="width: 125px">Image</div>
-                </div>
-                <div class="card-body w-100">
-                  <h5 class="card-title">Card title</h5>
-                  <p class="card-text">
-                    <span class="text-muted">bid: </span
-                    ><span id="current-bid" class="text-secondary fw-bold"
-                      >$7.43</span
-                    ><small id="bid-hours" class="text-danger ms-1"
-                      >(2 hours left)</small
-                    >
-                  </p>
-                  <a
-                    href="/src/listing/index.html"
-                    class="btn btn-secondary w-100 text-uppercase"
-                    >see listing</a
-                  >
-                </div>
-              </div>
-            </div>
-          </div>
+          <div
+            class="row row-cols-1 row-cols-md-2 g-3"
+            id="listingContainer"
+          ></div>
         </div>
       </div>
 
