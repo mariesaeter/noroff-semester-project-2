@@ -100,7 +100,7 @@ export function listingTemplate(listingData) {
 
   // action to change page location (child of cardBodyDiv)
   btnListing.addEventListener("click", () => {
-    window.location = `/src/listing/?id=${id}`;
+    window.location = `/listing/?id=${id}`;
   });
 
   // Appending elemnts to parent elements

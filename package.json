@@ -3,7 +3,7 @@
   "version": "0.0.9",
   "description": "An auction page where you can sell and bid on items",
   "type": "module",
-  "main": "src/index.js",
+  "main": "/",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "format": "prettier -w src/**/*.js",

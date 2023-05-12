@@ -30,6 +30,6 @@ export async function displayProfile() {
     removeLocal("accessToken");
     removeLocal("userProfile");
 
-    redirect("/src/login/");
+    redirect("/login/");
   });
 }

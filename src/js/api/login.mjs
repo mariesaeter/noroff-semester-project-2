@@ -22,7 +22,7 @@ export async function loginUser(user) {
       saveLocal("accessToken", accessToken);
       saveLocal("userProfile", userProfile);
 
-      redirect("/src/index.html");
+      redirect("/");
     } else {
       alert("Wrong email and/or password, please try again");
     }
