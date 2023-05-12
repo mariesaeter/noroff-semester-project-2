@@ -148,7 +148,7 @@
                   </div>
                   <div class="modal-body">
                     <p>Update avatar image by inserting a new avatar url.</p>
-                    <form class="w-100 mt-4">
+                    <form class="w-100 mt-4" id="avatarForm">
                       <div class="form-floating">
                         <input
                           type="url"
@@ -156,12 +156,14 @@
                           id="inputAvatar"
                           aria-label="Avatar"
                           placeholder="Avatar"
+                          name="avatar"
                         />
                         <label for="inputAvatar" class="ps-4">Avatar</label>
                       </div>
                       <button
-                        type="button"
+                        type="submit"
                         class="btn btn-secondary px-4 rounded border-0 w-100 text-uppercase"
+                        data-bs-dismiss="modal"
                       >
                         Update avatar
                       </button>

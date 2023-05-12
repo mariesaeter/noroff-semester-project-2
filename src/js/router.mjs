@@ -19,6 +19,7 @@ export default function router() {
       break;
     case "/src/profile/":
       display.displayProfile();
+      listeners.setUpdateAvatarListener();
       break;
   }
 }
