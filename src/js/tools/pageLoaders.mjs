@@ -9,3 +9,12 @@ export function redirect(path) {
     window.location.href = path;
   }, 250);
 }
+
+/**
+ * reloads the current page you are on
+ */
+export function reloadCurrentPage() {
+  setTimeout(() => {
+    location.reload();
+  }, 250);
+}
