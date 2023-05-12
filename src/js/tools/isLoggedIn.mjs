@@ -13,12 +13,15 @@ export async function isLoggedIn() {
     if (profile) {
       const navDisplayName = document.querySelectorAll(".nav-profile-name");
       const navDisplayCredits = document.querySelector(".nav-profile-credits");
-      const profile = loadLocal("userProfile");
 
       navDisplayName.forEach((display) => (display.innerText = profile.name));
       navDisplayCredits.innerText = `$${profile.credits}`;
       navProfile.forEach((display) => display.classList.remove("d-none"));
       navRegister.classList.add("d-none");
+
+      // add attribute link to profile link in navigation
+      const profileLink = document.getElementById("link-profile-page");
+      profileLink.setAttribute("href", `/src/profile/?name=${profile.name}`);
     }
     if (!profile) {
       navProfile.forEach((display) => display.classList.add("d-none"));
