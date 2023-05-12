@@ -1,4 +1,6 @@
 import { readProfile } from "../api/read/profile.mjs";
+import { removeLocal } from "../storage/index.mjs";
+import { redirect } from "../tools/pageLoaders.mjs";
 
 export async function displayProfile() {
   const url = new URL(location.href);
@@ -22,4 +24,12 @@ export async function displayProfile() {
   } else {
     profileAvatar.setAttribute("src", avatar);
   }
+
+  const btnSignOut = document.getElementById("btn-sign-out");
+  btnSignOut.addEventListener("click", () => {
+    removeLocal("accessToken");
+    removeLocal("userProfile");
+
+    redirect("/src/login/");
+  });
 }
