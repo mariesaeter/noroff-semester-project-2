@@ -7,19 +7,21 @@ export default function router() {
   isLoggedIn();
 
   switch (path) {
-    case "/src/":
+    case "/":
       display.displayListings();
-
       break;
-    case "/src/register/":
+    case "/register/":
       listeners.setRegisterFormListener();
       break;
-    case "/src/login/":
+    case "/login/":
       listeners.setLoginFormListener();
       break;
-    case "/src/profile/":
+    case "/profile/":
       display.displayProfile();
       listeners.setUpdateAvatarListener();
+      break;
+    case "/listing/create/":
+      listeners.setCreateListingFormListener();
       break;
   }
 }

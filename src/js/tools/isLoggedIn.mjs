@@ -21,7 +21,7 @@ export async function isLoggedIn() {
 
       // add attribute link to profile link in navigation
       const profileLink = document.getElementById("link-profile-page");
-      profileLink.setAttribute("href", `/src/profile/?name=${profile.name}`);
+      profileLink.setAttribute("href", `/profile/?name=${profile.name}`);
     }
     if (!profile) {
       navProfile.forEach((display) => display.classList.add("d-none"));

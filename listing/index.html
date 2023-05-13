@@ -6,19 +6,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="Listing page of Bokmynt" />
     <title>Bokmynt | Listing</title>
-    <!-- Bootstrap -->
+    <!-- Bootstrap css -->
     <link rel="stylesheet" href="/dist/css/styles.css" />
     <link href="/node_modules/bootstrap/dist/css/bootstrap.min.css" />
-    <script
-      defer
-      src="/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"
-    ></script>
-
     <!-- Fontawesome free icon kit -->
     <script
       src="https://kit.fontawesome.com/a2324745d3.js"
       crossorigin="anonymous"
     ></script>
+    <!-- Js script -->
+    <script type="module" src="/src/js/index.mjs" defer></script>
   </head>
   <body>
     <header>
@@ -26,14 +23,14 @@
         <div class="container-fluid p-0">
           <a
             class="navbar-brand text-uppercase bg-primary p-2 d-flex align-content-center m-lg-0 ms-lg-5"
-            href="#"
+            href="/"
             ><img class="logo" src="/src/images/bokvenn-logo.png" />
             <p class="d-none d-md-block m-0 align-self-center ps-2">BOKMYNT</p>
           </a>
           <div
-            class="nav-item nav-profile align-self-lg-center d-lg-none small ms-auto d-none"
+            class="nav-item nav-profile align-self-lg-center d-lg-none small ms-auto"
           >
-            Hi <span class="nav-profile-name">Name</span>
+            Hi <span class="nav-profile-name"></span>
           </div>
           <button
             class="navbar-toggler border-0 shadow-none collapsed d-flex flex-column justify-content-between d-lg-none"
@@ -54,39 +51,32 @@
               class="navbar-nav ml-auto bg-body py-2 px-4 w-100 me-lg-5 align-self-lg-stretch"
             >
               <li class="nav-item">
-                <a class="nav-link" href="/src/index.html">Home</a>
+                <a class="nav-link" href="/">Home</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="/src/profile/index.html"
+                <a class="nav-link" id="link-profile-page" href="/login/"
                   >Profile page</a
                 >
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="/src/listing/create/index.html"
-                  >Create listing</a
-                >
+                <a class="nav-link" href="/listing/create/">Create listing</a>
               </li>
               <li
-                class="nav-item nav-profile align-self-lg-center ms-lg-5 small order-first order-lg-last d-none ms-lg-auto"
+                class="nav-item nav-profile align-self-lg-center ms-lg-5 small order-first order-lg-last ms-lg-auto"
               >
-                Hi <span class="nav-profile-name">Name</span> | Credits:
-                <span class="nav-profile-credits text-secondary">$3.54</span>
+                Hi <span class="nav-profile-name"></span> | Credits:
+                <span class="nav-profile-credits text-secondary"></span>
               </li>
               <div
-                class="d-flex mt-3 mt-lg-0 align-self-lg-center small ms-lg-auto"
+                id="registerAndSignIn"
+                class="d-flex mt-3 mt-lg-0 align-self-lg-center small ms-lg-auto d-none"
               >
                 <li class="nav-item">
-                  <a class="text-decoration-none" href="/src/login/index.html"
-                    >Sign in</a
-                  >
+                  <a class="text-decoration-none" href="/login/">Sign in</a>
                 </li>
                 <span class="mx-1">or</span>
                 <li class="nav-item">
-                  <a
-                    class="text-decoration-none"
-                    href="/src/register/index.html"
-                    >Register</a
-                  >
+                  <a class="text-decoration-none" href="/register/">Register</a>
                 </li>
               </div>
             </ul>
