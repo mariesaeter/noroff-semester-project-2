@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="/dist/css/styles.css" />
     <link href="/node_modules/bootstrap/dist/css/bootstrap.min.css" />
     <!-- Fontawesome free icon kit -->
+
     <script
       src="https://kit.fontawesome.com/a2324745d3.js"
       crossorigin="anonymous"
@@ -97,62 +98,136 @@
               class="bg-body border-end border-start border-10 p-2 py-5 h-100 px-md-4"
             >
               <h1 class="text-center">Create Listing</h1>
-              <form class="w-100 mt-4">
-                <div class="form-floating">
+              <form
+                class="w-100 mt-4 formNeedsValidation"
+                id="listingForm"
+                novalidate
+              >
+                <div class="form-floating mb-3">
                   <input
                     type="text"
-                    class="form-control ps-3 pe-2 pb-1 pt-4 w-100 rounded mb-3 form-inputs"
+                    class="form-control ps-3 pe-2 pb-1 pt-4 w-100 rounded form-inputs"
                     id="inputTitle"
                     aria-label="Title"
                     placeholder="Title"
+                    name="title"
+                    required
                   />
                   <label for="inputName" class="ps-4">Title</label>
+                  <div class="invalid-feedback">
+                    A title describing your listing is required
+                  </div>
                 </div>
-                <div class="form-floating">
+                <div class="form-floating mb-3">
                   <input
                     type="date"
-                    class="form-control ps-3 pe-2 pb-1 pt-4 w-100 rounded mb-3 form-inputs"
-                    id="inputDeadline"
-                    aria-label="Deadline"
+                    class="form-control ps-3 pe-2 pb-1 pt-4 w-100 rounded form-inputs"
+                    id="inputEndDate"
+                    aria-label="End date"
                     placeholder="date"
+                    name="endsAt"
+                    required
                   />
-                  <label for="inputDeadline" class="ps-4">Deadline</label>
+                  <label for="inputEndDate" class="ps-4"
+                    >End date for bid</label
+                  >
+                  <div class="invalid-feedback">
+                    A date for when the bid is ending is needed
+                  </div>
                 </div>
-                <div class="form-floating">
+                <div class="form-floating mb-3">
                   <input
-                    type="url"
-                    class="form-control ps-3 pe-2 pb-1 pt-4 w-100 rounded mb-3 form-inputs"
+                    type="text"
+                    class="form-control ps-3 pe-2 pb-1 pt-4 w-100 rounded form-inputs"
                     id="inputImages"
                     aria-label="Images"
                     placeholder="Images"
+                    name="media"
                   />
-                  <label for="inputImages" class="ps-4">Images</label>
+                  <label for="inputImages" class="ps-4"
+                    >Images (example to add more than one:
+                    imageUrl1,imageUrl2)</label
+                  >
+                  <div class="invalid-feedback">
+                    Make sure your images is written as full URLs, example:
+                    "https://url.com/image.jpg"
+                  </div>
                 </div>
-                <div class="form-floating">
+                <div class="form-floating mb-3">
                   <textarea
-                    class="form-control ps-3 pe-2 pb-1 pt-4 w-100 rounded mb-3 form-inputs"
+                    class="form-control ps-3 pe-2 pb-1 pt-4 w-100 rounded form-inputs"
                     id="textareaDescription"
                     aria-label="Description"
                     placeholder="Description"
                     style="height: 200px"
+                    name="description"
                   ></textarea>
                   <label for="textareaDescription" class="ps-4"
                     >Description</label
                   >
                 </div>
                 <button
-                  type="button"
+                  type="submit"
                   class="btn btn-secondary px-4 rounded border-0 w-100 text-uppercase"
+                  data-bs-target="#listingSuccessModal"
+                  id="btn-submit-create"
                 >
                   Create listing
                 </button>
               </form>
+              <div
+                class="modal fade"
+                tabindex="-1"
+                id="listingSuccessModal"
+                aria-labelledby="listingSuccessLabel"
+                aria-hidden="true"
+              >
+                <div class="modal-dialog modal-dialog-centered">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h2 class="modal-title" id="listingSuccessLabel">
+                        Your listing was created successfully!
+                      </h2>
+                      <button
+                        type="button"
+                        class="btn-close"
+                        data-bs-dismiss="modal"
+                        aria-label="Close"
+                      ></button>
+                    </div>
+                    <div class="modal-body">
+                      <p>What do you want to do now?</p>
+                    </div>
+                    <div class="modal-footer">
+                      <a
+                        class="btn btn-secondary px-4 rounded border-0 text-uppercase"
+                        href="/"
+                      >
+                        Go to home
+                      </a>
+                      <a
+                        class="btn btn-secondary px-4 rounded border-0 text-uppercase"
+                        href="/"
+                      >
+                        see your listing
+                      </a>
+                      <button
+                        type="button"
+                        class="btn btn-light text-uppercase"
+                        data-bs-dismiss="modal"
+                      >
+                        Close
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </main>
-    <footer class="bg-light position-fixed bottom-0 d-block w-100 text-center">
+    <footer class="bg-light d-block w-100 text-center mt-5">
       <div class="container py-5">
         <div class="row">
           <div class="col">© Marie Sæter</div>

@@ -9,7 +9,6 @@ export default function router() {
   switch (path) {
     case "/":
       display.displayListings();
-
       break;
     case "/register/":
       listeners.setRegisterFormListener();
@@ -20,6 +19,9 @@ export default function router() {
     case "/profile/":
       display.displayProfile();
       listeners.setUpdateAvatarListener();
+      break;
+    case "/listing/create/":
+      listeners.setCreateListingFormListener();
       break;
   }
 }
