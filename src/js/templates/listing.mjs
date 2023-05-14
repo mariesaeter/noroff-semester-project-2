@@ -1,4 +1,4 @@
-import { endTime } from "../tools/formatDate.mjs";
+import { bidTime, endTime } from "../tools/formatDate.mjs";
 
 export function viewListingTemplate(listingData) {
   const { title, media, description, endsAt, bids, _count } = listingData;
@@ -103,7 +103,7 @@ export function viewListingTemplate(listingData) {
   // create currentBidContainer (child of bidContainer)
   const currentBidContainer = document.createElement("div");
   currentBidContainer.className =
-    "current-bid d-flex align-items-center justify-content-lg-start justify-content-center";
+    "d-flex align-items-center justify-content-lg-start justify-content-center";
 
   // create currentBidTitle (child of currentBidContainer)
   const currentBidTitle = document.createElement("p");
@@ -245,7 +245,7 @@ export function viewListingTemplate(listingData) {
 
   // create bidder time text (child of bidTextContainer)
   const time = document.createElement("span");
-  time.innerHTML = `at ${lastBid.created}`;
+  time.innerHTML = `at ${bidTime(lastBid.created)}`;
 
   // create modal body (child of modalContent)
   const modalBody = document.createElement("div");
@@ -281,9 +281,11 @@ export function viewListingTemplate(listingData) {
 
   for (let i = 0; i < bids.length; i++) {
     tableBody.innerHTML += `<tr>
-    <td>${bids[i].created}</td>
+    <td>${bidTime(bids[i].created)}</td>
     <td colspan="4">${bids[i].bidderName}</td>
-    <td class="text-end"><span class="bg-light py-1 px-2">$${bids[i].amount}</span></td>
+    <td class="text-end"><span class="bg-light py-1 px-2">$${
+      bids[i].amount
+    }</span></td>
     </tr>`;
   }
 
@@ -334,7 +336,8 @@ export function viewListingTemplate(listingData) {
   bidHistoryModal.appendChild(modalDialog);
 
   bidForm.append(bidFormInput, bidFormLabel, btnBidForm);
-  bidContainer.append(currentBidTitle, currentBidContainer);
+  currentBidContainer.append(currentBidTitle, currentBid);
+  bidContainer.appendChild(currentBidContainer);
   infoContainer.append(
     descriptionContainer,
     bidContainer,

@@ -54,3 +54,24 @@ export function countDownDate(listingEndDate) {
   timer();
   setInterval(timer, 60000);
 }
+
+/**
+ *
+ * @param {string} timeBidCreated | a time string
+ * @returns time in the form nn:nn;
+ */
+export function bidTime(timeBidCreated) {
+  const options = {
+    hour: "numeric",
+    minute: "numeric",
+    day: "numeric",
+    month: "short",
+    hour12: false,
+  };
+
+  let date = new Intl.DateTimeFormat("en-US", options).format(
+    new Date(timeBidCreated)
+  );
+
+  return date;
+}
