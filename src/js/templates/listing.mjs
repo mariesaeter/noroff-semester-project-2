@@ -74,13 +74,13 @@ export function viewListingTemplate(listingData) {
 
   for (let i = 0; i < media.length; i++) {
     indicatorsContainer.innerHTML += `<li data-bs-target="#productCarousel"
-      class="w-25 carouselIndicator"
+      class="carouselIndicator" 
       data-bs-slide-to="${i}"
       aria-label="Slide ${i + 1}"
     >
       <img
         src="${media[i]}"
-        class="d-block img-thumbnail"
+        class="d-block img-thumbnail indicatorImage"
       />
     </li>`;
   }
