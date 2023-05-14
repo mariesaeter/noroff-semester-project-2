@@ -245,7 +245,15 @@ export function viewListingTemplate(listingData) {
 
   // create bidder time text (child of bidTextContainer)
   const time = document.createElement("span");
-  time.innerHTML = `at ${bidTime(lastBid.created)}`;
+  if (_count.bids === 0) {
+    time.innerHTML = "no bids";
+  }
+  if (_count.bids === 1) {
+    time.innerHTML = `at ${bidTime(firstBid.created)}`;
+  }
+  if (_count.bids > 1) {
+    time.innerHTML = `at ${bidTime(lastBid.created)}`;
+  }
 
   // create modal body (child of modalContent)
   const modalBody = document.createElement("div");
