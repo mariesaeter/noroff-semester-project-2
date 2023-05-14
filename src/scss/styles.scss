@@ -63,3 +63,12 @@ input:focus {
 .carouselIndicator {
   width: 80px !important;
 }
+
+.carousel-item {
+  max-height: 350px;
+}
+
+.carousel-item img {
+  object-fit: contain;
+  max-height: 350px;
+}

@@ -55,7 +55,7 @@ export function viewListingTemplate(listingData) {
   carouselInner.className = "carousel-inner";
 
   for (let i = 0; i < media.length; i++) {
-    carouselInner.innerHTML += `<div class="carousel-item"><img class="d-block w-100" src="${media[i]}"></div>`;
+    carouselInner.innerHTML += `<div class="carousel-item bg-light"><img class="d-block w-100" src="${media[i]}"></div>`;
   }
 
   // Create button prev (child of carousel)
