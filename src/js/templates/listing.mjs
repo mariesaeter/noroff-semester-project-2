@@ -1,7 +1,7 @@
-import { bidTime, endTime } from "../tools/formatDate.mjs";
+import { bidTime } from "../tools/formatDate.mjs";
 
 export function viewListingTemplate(listingData) {
-  const { title, media, description, endsAt, bids, _count } = listingData;
+  const { title, media, description, bids, _count } = listingData;
 
   //   const lastBid = bids[bids.length - 1];
   const { 0: firstBid, length, [length - 1]: lastBid } = bids;
@@ -14,6 +14,32 @@ export function viewListingTemplate(listingData) {
   const h1 = document.createElement("h1");
   const h1Text = document.createTextNode(title);
   h1.appendChild(h1Text);
+
+  // create time left container and spans (child of mainDiv)
+  const timeLeftContainer = document.createElement("div");
+  timeLeftContainer.className = "text-danger fs-6 pt-lg-2 pe-lg-5";
+  timeLeftContainer.setAttribute("id", "timeLeft");
+  const spanDays = document.createElement("span");
+  spanDays.className = "days";
+  const spanD = document.createElement("span");
+  spanD.innerText = " d ";
+  const spanHours = document.createElement("span");
+  spanHours.className = "hours";
+  const spanH = document.createElement("span");
+  spanH.innerText = " h ";
+  const spanMinutes = document.createElement("span");
+  spanMinutes.className = "minutes";
+  const spanM = document.createElement("span");
+  spanM.innerText = " m left";
+
+  timeLeftContainer.append(
+    spanDays,
+    spanD,
+    spanHours,
+    spanH,
+    spanMinutes,
+    spanM
+  );
 
   // create carouselContainer (child of mainDiv)
   const carouselContainer = document.createElement("div");
@@ -304,7 +330,28 @@ export function viewListingTemplate(listingData) {
   // End time for bid (child of modalFooter)
   const footerEndTime = document.createElement("p");
   footerEndTime.className = "text-danger fs-6";
-  footerEndTime.innerText = `Bid ends ${endTime(endsAt)}`;
+  footerEndTime.setAttribute("id", "timeLeftModal");
+  const modalSpanDays = document.createElement("span");
+  modalSpanDays.className = "days";
+  const modalSpanD = document.createElement("span");
+  modalSpanD.innerText = " d ";
+  const modalSpanHours = document.createElement("span");
+  modalSpanHours.className = "hours";
+  const modalSpanH = document.createElement("span");
+  modalSpanH.innerText = " h ";
+  const modalSpanMinutes = document.createElement("span");
+  modalSpanMinutes.className = "minutes";
+  const modalSpanM = document.createElement("span");
+  modalSpanM.innerText = " m left";
+
+  footerEndTime.append(
+    modalSpanDays,
+    modalSpanD,
+    modalSpanHours,
+    modalSpanH,
+    modalSpanMinutes,
+    modalSpanM
+  );
 
   // Close button for modal (child of modalFooter)
   const footerClose = document.createElement("button");
@@ -354,7 +401,7 @@ export function viewListingTemplate(listingData) {
     bidHistoryModal
   );
   // appending main
-  mainDiv.append(h1, carouselContainer, infoContainer);
+  mainDiv.append(h1, timeLeftContainer, carouselContainer, infoContainer);
 
   return mainDiv;
 }

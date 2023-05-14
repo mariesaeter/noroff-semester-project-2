@@ -23,6 +23,7 @@ export default function router() {
       break;
     case "/listing/":
       displayListing();
+
       break;
     case "/listing/create/":
       listeners.setCreateListingFormListener();

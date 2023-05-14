@@ -1,5 +1,6 @@
 import { readListing } from "../api/read/listings.mjs";
 import { renderViewListingTemplate } from "../templates/listing.mjs";
+import { endTime, initializeTime } from "../tools/formatDate.mjs";
 
 export async function displayListing() {
   const url = new URL(location.href);
@@ -22,4 +23,8 @@ export async function displayListing() {
   const activeIndicator = carouselIndicators[0];
   activeIndicator.classList.add("active");
   activeIndicator.setAttribute("aria-current", "true");
+
+  const dateEnd = endTime(listing.endsAt);
+  initializeTime("timeLeft", dateEnd);
+  initializeTime("timeLeftModal", dateEnd);
 }
