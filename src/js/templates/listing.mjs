@@ -332,7 +332,7 @@ export function viewListingTemplate(listingData) {
   // Create table body (child of bidTable)
   const tableBody = document.createElement("tbody");
 
-  for (let i = 0; i < bids.length; i++) {
+  for (let i = bids.length - 1; i >= 0; i--) {
     tableBody.innerHTML += `<tr>
     <td>${bidTime(bids[i].created)}</td>
     <td colspan="4">${bids[i].bidderName}</td>
