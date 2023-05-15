@@ -151,23 +151,38 @@ export function viewListingTemplate(listingData) {
 
   // create bidForm (child of infoContainer)
   const bidForm = document.createElement("form");
-  bidForm.className = "w-100 form-floating";
+  bidForm.className = "w-100 formNeedsValidation";
+  bidForm.setAttribute("id", "bidForm");
+  bidForm.noValidate = true;
 
-  // create bidFormInput (child of bidForm)
+  // create bidFormInputContainer (child of bidForm)
+  const bidFormInputContainer = document.createElement("div");
+  bidFormInputContainer.className = "form-floating mb-3";
+
+  // create bidFormInput (child of bidFormInputContainer)
   const bidFormInput = document.createElement("input");
   bidFormInput.className =
-    "form-control ps-3 pe-2 pb-1 pt-4 w-100 rounded mb-3 form-inputs";
+    "form-control ps-3 pe-2 pb-1 pt-4 w-100 rounded form-inputs";
   bidFormInput.setAttribute("type", "number");
   bidFormInput.setAttribute("id", "floatingInput");
   bidFormInput.setAttribute("aria-label", "Amount");
   bidFormInput.setAttribute("placeholder", "Amount");
   bidFormInput.setAttribute("name", "amount");
+  bidFormInput.required = true;
 
-  // create label for bidFormInput (child of bidForm)
+  // create label for bidFormInput (child of bidFormInputContainer)
   const bidFormLabel = document.createElement("label");
   bidFormLabel.className = "ps-4";
   bidFormLabel.setAttribute("for", "floatingInput");
   bidFormLabel.innerText = "Amount";
+
+  // create invalid div for bidFormInput (child of bidFormInputContainer)
+  const invalidInput = document.createElement("div");
+  invalidInput.className = "invalid-feedback";
+
+  const errorBid = document.createElement("div");
+  errorBid.className = "text-danger";
+  errorBid.setAttribute("id", "invalid-bid");
 
   // Create button for bidForm (child of bidForm)
   const btnBidForm = document.createElement("button");
@@ -175,6 +190,10 @@ export function viewListingTemplate(listingData) {
     "btn btn-secondary px-4 rounded border-0 w-100 text-uppercase";
   btnBidForm.innerText = "Make bid";
   btnBidForm.setAttribute("type", "submit");
+
+  const successBid = document.createElement("div");
+  successBid.className = "text-success fs-6 fw-bold mt-2";
+  successBid.setAttribute("id", "valid-bid");
 
   // Create button to open bid history (child of infoContainer)
   const btnBidHistory = document.createElement("button");
@@ -313,7 +332,7 @@ export function viewListingTemplate(listingData) {
   // Create table body (child of bidTable)
   const tableBody = document.createElement("tbody");
 
-  for (let i = 0; i < bids.length; i++) {
+  for (let i = bids.length - 1; i >= 0; i--) {
     tableBody.innerHTML += `<tr>
     <td>${bidTime(bids[i].created)}</td>
     <td colspan="4">${bids[i].bidderName}</td>
@@ -390,7 +409,13 @@ export function viewListingTemplate(listingData) {
   modalDialog.appendChild(modalContent);
   bidHistoryModal.appendChild(modalDialog);
 
-  bidForm.append(bidFormInput, bidFormLabel, btnBidForm);
+  bidFormInputContainer.append(
+    bidFormInput,
+    bidFormLabel,
+    invalidInput,
+    errorBid
+  );
+  bidForm.append(bidFormInputContainer, btnBidForm, successBid);
   currentBidContainer.append(currentBidTitle, currentBid);
   bidContainer.appendChild(currentBidContainer);
   infoContainer.append(
