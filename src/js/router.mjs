@@ -1,4 +1,5 @@
 import * as display from "./display/index.mjs";
+import { searchResults } from "./features/search.mjs";
 import * as listeners from "./forms/index.mjs";
 import { isLoggedIn } from "./tools/isLoggedIn.mjs";
 
@@ -9,6 +10,7 @@ export default function router() {
   switch (path) {
     case "/":
       display.displayListings();
+      searchResults();
       break;
     case "/register/":
       listeners.setRegisterFormListener();
