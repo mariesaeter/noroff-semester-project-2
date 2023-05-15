@@ -1,4 +1,5 @@
 import { bidTime } from "../tools/formatDate.mjs";
+import { notAccess } from "../tools/notLoggedIn.mjs";
 
 export function viewListingTemplate(listingData) {
   const { title, media, description, bids, _count } = listingData;
@@ -196,12 +197,15 @@ export function viewListingTemplate(listingData) {
   successBid.setAttribute("id", "valid-bid");
 
   // Create button to open bid history (child of infoContainer)
-  const btnBidHistory = document.createElement("button");
+  const btnBidHistory = document.createElement("a");
   btnBidHistory.className = "btn btn-link mt-3";
   btnBidHistory.innerText = "View bid history";
-  btnBidHistory.setAttribute("type", "button");
-  btnBidHistory.setAttribute("data-bs-toggle", "modal");
-  btnBidHistory.setAttribute("data-bs-target", "#bidHistoryModal");
+
+  notAccess(btnBidHistory);
+  if (notAccess(btnBidHistory) === false) {
+    btnBidHistory.setAttribute("data-bs-toggle", "modal");
+    btnBidHistory.setAttribute("data-bs-target", "#bidHistoryModal");
+  }
 
   // Create modal for bid history (child of infoContainer)
   const bidHistoryModal = document.createElement("div");
