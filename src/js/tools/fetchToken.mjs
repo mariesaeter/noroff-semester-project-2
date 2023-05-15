@@ -11,3 +11,14 @@ export async function fetchToken(url, options) {
     },
   });
 }
+
+export async function fetchTokenObject(url, options) {
+  const accessToken = loadLocal("accessToken");
+
+  return fetch(url, {
+    ...options,
+    headers: {
+      Authorization: `Bearer ${accessToken}`,
+    },
+  });
+}

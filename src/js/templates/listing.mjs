@@ -151,7 +151,12 @@ export function viewListingTemplate(listingData) {
 
   // create bidForm (child of infoContainer)
   const bidForm = document.createElement("form");
-  bidForm.className = "w-100 form-floating";
+  bidForm.className = "w-100 formNeedsValidation";
+  bidForm.setAttribute("id", "bidForm");
+
+  // create bidFormInputContainer (child of bidForm)
+  const bidFormInputContainer = document.createElement("div");
+  bidFormInputContainer.className = "form-floating mb-3";
 
   // create bidFormInput (child of bidForm)
   const bidFormInput = document.createElement("input");
@@ -162,6 +167,7 @@ export function viewListingTemplate(listingData) {
   bidFormInput.setAttribute("aria-label", "Amount");
   bidFormInput.setAttribute("placeholder", "Amount");
   bidFormInput.setAttribute("name", "amount");
+  bidFormInput.required = true;
 
   // create label for bidFormInput (child of bidForm)
   const bidFormLabel = document.createElement("label");
@@ -390,7 +396,8 @@ export function viewListingTemplate(listingData) {
   modalDialog.appendChild(modalContent);
   bidHistoryModal.appendChild(modalDialog);
 
-  bidForm.append(bidFormInput, bidFormLabel, btnBidForm);
+  bidFormInputContainer.append(bidFormInput, bidFormLabel);
+  bidForm.append(bidFormInputContainer, btnBidForm);
   currentBidContainer.append(currentBidTitle, currentBid);
   bidContainer.appendChild(currentBidContainer);
   infoContainer.append(

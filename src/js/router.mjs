@@ -1,5 +1,4 @@
 import * as display from "./display/index.mjs";
-import { displayListing } from "./display/listing.mjs";
 import * as listeners from "./forms/index.mjs";
 import { isLoggedIn } from "./tools/isLoggedIn.mjs";
 
@@ -22,7 +21,7 @@ export default function router() {
       listeners.setUpdateAvatarListener();
       break;
     case "/listing/":
-      displayListing();
+      listeners.setBidFormListener();
 
       break;
     case "/listing/create/":
