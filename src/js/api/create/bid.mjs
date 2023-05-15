@@ -16,6 +16,17 @@ export async function createBid(id, bidAmount) {
       body,
     });
 
+    if (!response.ok) {
+      const error = await response.json();
+      const feedbackContainer = document.getElementById("invalid-bid");
+      feedbackContainer.innerText = `${error.errors[0].message}`;
+    }
+
+    if (response.ok) {
+      const success = document.getElementById("valid-bid");
+      success.innerText = "Your bid came through!";
+    }
+
     return await response.json();
   } catch (error) {
     console.log(error);

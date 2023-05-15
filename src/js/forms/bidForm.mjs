@@ -1,5 +1,5 @@
 import { createBid } from "../api/create/bid.mjs";
-// import { formValidation } from "../tools/formValidation.mjs";
+import { formValidation } from "../tools/formValidation.mjs";
 import { displayListing } from "../display/listing.mjs";
 
 /**
@@ -16,7 +16,7 @@ export async function setBidFormListener() {
 
   form.addEventListener("submit", (event) => {
     event.preventDefault();
-    // formValidation();
+    formValidation();
 
     const form = event.target;
     const formData = new FormData(form);
