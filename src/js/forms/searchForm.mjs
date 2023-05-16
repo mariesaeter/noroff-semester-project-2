@@ -17,21 +17,39 @@ export function setSearchForm(listings) {
 
       // filter so that it is possible to get search results from title, body, profile and tags
       const filteredListings = listings.filter(function (listing) {
-        const title = listing.title.toLowerCase();
-        // const description = listing.description.toLowerCase();
-        const seller = listing.seller.name.toLowerCase();
-        const tags = Boolean(
-          listing.tags
-            .map((tag) => tag.toLowerCase())
-            .filter((tag) => tag.includes(searchWord)).length
-        );
+        if (listing.description === null) {
+          const title = listing.title.toLowerCase();
+          let description = " ";
+          const seller = listing.seller.name.toLowerCase();
+          const tags = Boolean(
+            listing.tags
+              .map((tag) => tag.toLowerCase())
+              .filter((tag) => tag.includes(searchWord)).length
+          );
 
-        return (
-          title.includes(searchWord) ||
-          // description.includes(searchWord) ||
-          seller.includes(searchWord) ||
-          tags
-        );
+          return (
+            title.includes(searchWord) ||
+            description.includes(searchWord) ||
+            seller.includes(searchWord) ||
+            tags
+          );
+        } else {
+          const title = listing.title.toLowerCase();
+          let description = listing.description.toLowerCase();
+          const seller = listing.seller.name.toLowerCase();
+          const tags = Boolean(
+            listing.tags
+              .map((tag) => tag.toLowerCase())
+              .filter((tag) => tag.includes(searchWord)).length
+          );
+
+          return (
+            title.includes(searchWord) ||
+            description.includes(searchWord) ||
+            seller.includes(searchWord) ||
+            tags
+          );
+        }
       });
       const results = document.getElementById("listingContainer");
       if (filteredListings.length) {
