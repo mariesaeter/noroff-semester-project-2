@@ -122,3 +122,9 @@ export function renderListingTemplates(listingData, parent) {
     return true;
   });
 }
+
+export function renderAllListingsTemplate(listingData, parent) {
+  listingData.forEach((listingData) => {
+    parent.append(listingTemplate(listingData));
+  });
+}
