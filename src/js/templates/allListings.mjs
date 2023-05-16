@@ -35,7 +35,6 @@ export function listingTemplate(listingData) {
 
   // create mainDiv for one listing
   const mainDiv = document.createElement("div");
-  mainDiv.className = "col";
 
   // create card div (child of mainDiv)
   const cardDiv = document.createElement("div");
@@ -113,15 +112,50 @@ export function listingTemplate(listingData) {
   return mainDiv;
 }
 
-export function renderListingTemplates(listingData, parent) {
-  listingData.every((listingData, index) => {
-    if (index > 30) {
-      return false;
-    }
-    parent.append(listingTemplate(listingData));
-    return true;
-  });
-}
+// export function renderListingTemplates(listingData, parent) {
+//   listingData.every((listingData, index) => {
+//     if (index > 30) {
+//       return false;
+//     }
+//     parent.append(listingTemplate(listingData));
+//     return true;
+//   });
+// }
+
+// export function renderListingTemplates(listingData, loadMoreBtn, parent) {
+//   for (let i = 0; i < listingData.length; i++) {}
+// const listings = listingData.length;
+// const listingsIncreaseBy = 20;
+// const pageCount = Math.ceil(listings / listingsIncreaseBy);
+// let currentPage = 1;
+
+// const btnStatus = () => {
+//   if (pageCount === currentPage) {
+//     loadMoreBtn.classList.add("disabled");
+//     loadMoreBtn.setAttribute("disabled", true);
+//   }
+// };
+
+// const addListings = (pageIndex) => {
+//   currentPage = pageIndex;
+//   btnStatus();
+// };
+
+// // const startRange = (pageIndex - 1) * listingsIncreaseBy;
+// // const endRange = pageIndex * listingsIncreaseBy > listings ? listings : pageIndex * listingsIncreaseBy;
+
+// // for (let i = startRange + 1; i <= endRange; i++) {
+// //   addListings(i);
+// // }
+// window.onload = function () {
+//   addListings(currentPage);
+//   loadMoreBtn.addEventListener("click", () => {
+//     addListings(currentPage + 1);
+//   });
+// };
+// listingData.forEach((listingData) => {
+//   parent.append(listingTemplate(listingData));
+// }
 
 export function renderAllListingsTemplate(listingData, parent) {
   listingData.forEach((listingData) => {

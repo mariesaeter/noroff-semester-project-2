@@ -19,6 +19,21 @@ export async function readListings() {
   }
 }
 
+export async function readLimitListings(offset) {
+  try {
+    const response = await fetch(
+      `${api_Listings}/${api_Listings_parameters}&limit=20&offset=${offset}`
+    );
+
+    const listings = await response.json();
+    console.log(listings);
+
+    return listings;
+  } catch (error) {
+    console.log(error);
+  }
+}
+
 /**
  * GET request to fetch a single listing by its id
  * @param {string} id - of listing
