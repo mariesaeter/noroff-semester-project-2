@@ -184,6 +184,7 @@ export function renderListingTemplate(listingData, parent) {
 // }
 
 export function renderAllListingsTemplate(listingData, parent) {
+  parent.innerHTML = "";
   listingData.forEach((listingData) => {
     parent.append(listingTemplate(listingData));
   });

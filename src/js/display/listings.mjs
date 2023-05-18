@@ -1,5 +1,6 @@
 import { readLimitListings } from "../api/read/listings.mjs";
 import { renderAllListingsTemplate } from "../templates/allListings.mjs";
+import { addLoader } from "../templates/loader.mjs";
 import { endTime, initializeTime } from "../tools/formatDate.mjs";
 
 export async function displayListings() {
@@ -25,6 +26,7 @@ export async function displayListings() {
 
   nextButton.addEventListener("click", async () => {
     listingsContainer.innerHTML = "";
+    addLoader(listingsContainer);
     currentPage++;
     prevButton.classList.remove("d-none");
     const listings = await readLimitListings(20, currentPage);
@@ -39,6 +41,7 @@ export async function displayListings() {
 
   prevButton.addEventListener("click", async () => {
     listingsContainer.innerHTML = "";
+    addLoader(listingsContainer);
     currentPage--;
 
     const listings = await readLimitListings(20, currentPage);

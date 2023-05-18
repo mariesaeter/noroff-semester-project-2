@@ -1,6 +1,7 @@
 import {
   api_Listings,
   api_Listings_parameters,
+  api_Listings_sort_parameters,
 } from "../../tools/constants.mjs";
 
 /**
@@ -21,16 +22,30 @@ export async function readListings() {
 
 export async function readLimitListings(limit, currentPage) {
   try {
-    const response = await fetch(
-      `${api_Listings}/${api_Listings_parameters}&limit=${limit}&offset=${
-        limit * currentPage
-      }`
-    );
+    const switchSort = document.getElementById("switchCheckSort");
+    if (switchSort.value === "on") {
+      const response = await fetch(
+        `${api_Listings}/${api_Listings_sort_parameters}&limit=${limit}&offset=${
+          limit * currentPage
+        }`
+      );
 
-    const listings = await response.json();
-    console.log(listings);
+      const listings = await response.json();
+      console.log(listings);
 
-    return listings;
+      return listings;
+    } else {
+      const response = await fetch(
+        `${api_Listings}/${api_Listings_parameters}&limit=${limit}&offset=${
+          limit * currentPage
+        }`
+      );
+
+      const listings = await response.json();
+      console.log(listings);
+
+      return listings;
+    }
   } catch (error) {
     console.log(error);
   }
