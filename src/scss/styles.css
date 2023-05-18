@@ -10939,4 +10939,22 @@ input:focus {
 
 .carouselIndicator {
   width: 80px !important;
+}
+
+.carousel-item {
+  max-height: 350px;
+}
+
+.carousel-item img {
+  -o-object-fit: contain;
+     object-fit: contain;
+  max-height: 350px;
+}
+
+.card-img {
+  border-radius: 0;
+  width: 130px;
+  height: 160px;
+  -o-object-fit: cover;
+     object-fit: cover;
 }/*# sourceMappingURL=styles.css.map */

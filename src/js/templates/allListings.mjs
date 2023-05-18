@@ -43,12 +43,12 @@ export function listingTemplate(listingData) {
 
   // Create img div (child of cardDiv)
   const imgDiv = document.createElement("div");
-  imgDiv.className = "bg-light rounded-start d-flex align-items-center";
+  imgDiv.className =
+    "bg-light rounded-start d-flex align-items-center card-img-container";
 
   // create card img (child of imgDiv)
   const cardImg = document.createElement("img");
-  cardImg.className = "card-img";
-  cardImg.setAttribute("style", "width: 125px");
+  cardImg.className = "card-img ";
   cardImg.src = media[0];
 
   // create card body (child of cardDiv)
