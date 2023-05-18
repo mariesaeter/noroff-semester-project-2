@@ -10882,6 +10882,7 @@ textarea.form-control-lg {
 main {
   position: relative;
   top: 66px;
+  min-height: calc(100vh - 66px);
 }
 
 input:focus {
@@ -10928,4 +10929,80 @@ input:focus {
 .avatar-img {
   width: 250px;
   height: 250px;
+}
+
+.indicatorImage {
+  width: 80px;
+  height: 80px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.carouselIndicator {
+  width: 80px !important;
+}
+
+.carousel-item {
+  max-height: 350px;
+}
+
+.carousel-item img {
+  -o-object-fit: contain;
+     object-fit: contain;
+  max-height: 350px;
+}
+
+.card-img {
+  border-radius: 0;
+  width: 130px;
+  height: 160px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.dot {
+  width: 80px;
+  height: 40px;
+  -webkit-mask: radial-gradient(farthest-side, currentColor 90%, rgba(0, 0, 0, 0)), radial-gradient(farthest-side, currentColor 90%, rgba(0, 0, 0, 0)), radial-gradient(farthest-side, currentColor 90%, rgba(0, 0, 0, 0));
+          mask: radial-gradient(farthest-side, currentColor 90%, rgba(0, 0, 0, 0)), radial-gradient(farthest-side, currentColor 90%, rgba(0, 0, 0, 0)), radial-gradient(farthest-side, currentColor 90%, rgba(0, 0, 0, 0));
+  -webkit-mask-size: 20px 20px;
+          mask-size: 20px 20px;
+  -webkit-mask-repeat: no-repeat;
+          mask-repeat: no-repeat;
+  background: linear-gradient(to bottom, #e7dae7, #e7dae7 50%, #91557c 50%, #91557c);
+  background-size: 100%;
+  background-repeat: no-repeat;
+  animation: maskLoad 2s infinite;
+}
+
+@keyframes maskLoad {
+  0% {
+    -webkit-mask-position: 0% 100%, 50% 100%, 100% 100%;
+            mask-position: 0% 100%, 50% 100%, 100% 100%;
+    color: #91557c;
+  }
+  16.6666667% {
+    -webkit-mask-position: 0% 0, 50% 100%, 100% 100%;
+            mask-position: 0% 0, 50% 100%, 100% 100%;
+  }
+  33.3333334% {
+    -webkit-mask-position: 0% 0, 50% 0, 100% 100%;
+            mask-position: 0% 0, 50% 0, 100% 100%;
+  }
+  50.0000001% {
+    -webkit-mask-position: 0% 0, 50% 0, 100% 0;
+            mask-position: 0% 0, 50% 0, 100% 0;
+  }
+  66.6666668% {
+    -webkit-mask-position: 0% 100%, 50% 0, 100% 0;
+            mask-position: 0% 100%, 50% 0, 100% 0;
+  }
+  83.3333335% {
+    -webkit-mask-position: 0% 100%, 50% 100%, 100% 0;
+            mask-position: 0% 100%, 50% 100%, 100% 0;
+  }
+  100% {
+    -webkit-mask-position: 0% 100%, 50% 100%, 100% 100%;
+            mask-position: 0% 100%, 50% 100%, 100% 100%;
+  }
 }/*# sourceMappingURL=styles.css.map */

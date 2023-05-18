@@ -5,20 +5,18 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="Register page of Bokmynt" />
-    <title>Bokvenn | Register</title>
+    <title>Bokmynt | Register</title>
     <!-- Bootstrap -->
+    <!-- Bootstrap css -->
     <link rel="stylesheet" href="/dist/css/styles.css" />
     <link href="/node_modules/bootstrap/dist/css/bootstrap.min.css" />
-    <script
-      defer
-      src="/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"
-    ></script>
-
     <!-- Fontawesome free icon kit -->
     <script
       src="https://kit.fontawesome.com/a2324745d3.js"
       crossorigin="anonymous"
     ></script>
+    <!-- Js script -->
+    <script type="module" src="/src/js/index.mjs" defer></script>
   </head>
   <body>
     <header>
@@ -26,14 +24,14 @@
         <div class="container-fluid p-0">
           <a
             class="navbar-brand text-uppercase bg-primary p-2 d-flex align-content-center m-lg-0 ms-lg-5"
-            href="#"
+            href="/"
             ><img class="logo" src="/src/images/bokvenn-logo.png" />
             <p class="d-none d-md-block m-0 align-self-center ps-2">BOKMYNT</p>
           </a>
           <div
-            class="nav-item nav-profile align-self-lg-center d-lg-none small ms-auto d-none"
+            class="nav-item nav-profile align-self-lg-center d-lg-none small ms-auto"
           >
-            Hi <span class="nav-profile-name">Name</span>
+            Hi <span class="nav-profile-name"></span>
           </div>
           <button
             class="navbar-toggler border-0 shadow-none collapsed d-flex flex-column justify-content-between d-lg-none"
@@ -54,38 +52,37 @@
               class="navbar-nav ml-auto bg-body py-2 px-4 w-100 me-lg-5 align-self-lg-stretch"
             >
               <li class="nav-item">
-                <a class="nav-link" href="/src/index.html">Home</a>
+                <a class="nav-link" href="/">Home</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="/src/profile/index.html"
+                <a class="nav-link" id="link-profile-page" href="/login/"
                   >Profile page</a
                 >
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="/src/listing/create/index.html"
+                <a class="nav-link" id="link-listing-create" href="/login/"
                   >Create listing</a
                 >
               </li>
               <li
-                class="nav-item nav-profile align-self-lg-center ms-lg-5 small order-first order-lg-last d-none ms-lg-auto"
+                class="nav-item nav-profile align-self-lg-center ms-lg-5 small order-first order-lg-last ms-lg-auto"
               >
-                Hi <span class="nav-profile-name">Name</span> | Credits:
-                <span class="nav-profile-credits text-secondary">$3.54</span>
+                Hi <span class="nav-profile-name"></span> | Credits:
+                <span class="nav-profile-credits text-secondary"></span>
               </li>
               <div
-                class="d-flex mt-3 mt-lg-0 align-self-lg-center small ms-lg-auto"
+                id="registerAndSignIn"
+                class="d-flex mt-3 mt-lg-0 align-self-lg-center small ms-lg-auto d-none"
               >
                 <li class="nav-item">
-                  <a class="text-decoration-none" href="/src/login/index.html"
-                    >Sign in</a
-                  >
+                  <a class="text-decoration-none" href="/login/">Sign in</a>
                 </li>
                 <span class="mx-1">or</span>
                 <li class="nav-item">
                   <a
                     class="text-decoration-none active"
                     aria-current="page"
-                    href="/src/register/index.html"
+                    href="/register/"
                     >Register</a
                   >
                 </li>
@@ -95,7 +92,7 @@
         </div>
       </nav>
     </header>
-    <main class="mx-3 my-4 px-lg-5">
+    <main class="mx-3 my-4 pb-5 px-lg-5">
       <div class="container">
         <div class="row m-0">
           <div class="col col-xl-5 bg-primary py-3 d-none d-xl-block p-lg-4">
@@ -110,74 +107,133 @@
           <div class="col-12 col-xl-7 bg-light p-3 p-lg-4">
             <div class="bg-body border-end border-10 p-2 py-5 h-100 px-md-4">
               <h1 class="text-center">Register</h1>
-              <form class="w-100 mt-4">
-                <div class="form-floating">
+              <form
+                class="w-100 mt-4 formNeedsValidation"
+                id="registerForm"
+                novalidate
+              >
+                <div class="form-floating mb-3">
                   <input
                     type="text"
-                    class="form-control ps-3 pe-2 pb-1 pt-4 w-100 rounded mb-3 form-inputs"
+                    class="form-control ps-3 pe-2 pb-1 pt-4 w-100 rounded form-inputs"
                     id="inputName"
                     aria-label="Name"
                     placeholder="Name"
+                    name="name"
+                    required
                   />
                   <label for="inputName" class="ps-4">Name</label>
+                  <div class="invalid-feedback">Please choose a name</div>
                 </div>
-                <div class="form-floating">
+                <div class="form-floating mb-3">
                   <input
                     type="email"
-                    class="form-control ps-3 pe-2 pb-1 pt-4 w-100 rounded mb-3 form-inputs"
+                    name="email"
+                    class="form-control ps-3 pe-2 pb-1 pt-4 w-100 rounded form-inputs"
                     id="inputEmail"
                     aria-label="Email"
                     placeholder="example@mail.com"
+                    required
                   />
                   <label for="inputEmail" class="ps-4"
                     >Email (example@mail.com)</label
                   >
+                  <div class="invalid-feedback">
+                    Please provide a valid e-mail with @noroff.no or
+                    @stud.noroff.no
+                  </div>
                 </div>
-                <div class="form-floating">
+                <div class="form-floating mb-3">
                   <input
                     type="password"
-                    class="form-control ps-3 pe-2 pb-1 pt-4 w-100 rounded mb-3 form-inputs"
+                    name="password"
+                    class="form-control ps-3 pe-2 pb-1 pt-4 w-100 rounded form-inputs"
                     id="inputPassword"
                     aria-label="Password"
                     placeholder="password"
+                    required
                   />
                   <label for="inputPassword" class="ps-4">Password</label>
+                  <div class="invalid-feedback">
+                    Please provide a password with a minimum of 8 characters
+                  </div>
                 </div>
-                <div class="form-floating">
+                <div class="form-floating mb-3">
                   <input
                     type="url"
-                    class="form-control ps-3 pe-2 pb-1 pt-4 w-100 rounded mb-3 form-inputs"
+                    name="avatar"
+                    class="form-control ps-3 pe-2 pb-1 pt-4 w-100 rounded form-inputs"
                     id="inputAvatar"
                     aria-label="Avatar"
                     placeholder="avatar"
                   />
                   <label for="inputAvatar" class="ps-4">Avatar</label>
+                  <div class="invalid-feedback">
+                    Please provide a correctly formatted url link
+                  </div>
                 </div>
                 <button
-                  type="button"
+                  type="submit"
                   class="btn btn-secondary px-4 rounded border-0 w-100 text-uppercase"
                 >
                   Register
                 </button>
               </form>
+              <div
+                class="modal fade"
+                tabindex="-1"
+                id="registerSuccessModal"
+                aria-labelledby="registerSuccessLabel"
+                aria-hidden="true"
+              >
+                <div class="modal-dialog modal-dialog-centered">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h2 class="modal-title" id="registerSuccessLabel">
+                        Welcome to bokmynt!
+                      </h2>
+                      <button
+                        type="button"
+                        class="btn-close"
+                        data-bs-dismiss="modal"
+                        aria-label="Close"
+                      ></button>
+                    </div>
+                    <div class="modal-body">
+                      <p>You've now successfully registered a user</p>
+                    </div>
+                    <div class="modal-footer">
+                      <a
+                        class="btn btn-secondary px-4 rounded border-0 text-uppercase"
+                        href="/login/"
+                      >
+                        Login
+                      </a>
+                      <button
+                        type="button"
+                        class="btn btn-light text-uppercase"
+                        data-bs-dismiss="modal"
+                      >
+                        Close
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
               <h2 class="mt-4 text-center">If you already have an account</h2>
               <div
                 class="d-flex mt-3 mt-lg-0 align-self-lg-center ms-lg-auto justify-content-center"
               >
-                <a class="text-decoration-none" href="/src/login/index.html"
-                  >Sign in</a
-                >
+                <a class="text-decoration-none" href="/login/">Sign in</a>
                 <span class="mx-1">or</span>
-                <a class="text-decoration-none" href="/src/index.html"
-                  >Browse listings</a
-                >
+                <a class="text-decoration-none" href="/">Browse listings</a>
               </div>
             </div>
           </div>
         </div>
       </div>
     </main>
-    <footer class="bg-light position-fixed bottom-0 d-block w-100 text-center">
+    <footer class="bg-light d-block w-100 text-center mt-5">
       <div class="container py-5">
         <div class="row">
           <div class="col">© Marie Sæter</div>
