@@ -1,5 +1,3 @@
-import { endTime } from "../tools/formatDate.mjs";
-
 export function listingTemplate(listingData) {
   // End result
   // <div class="col">
@@ -28,7 +26,7 @@ export function listingTemplate(listingData) {
   //           </div>
   //         </div>
 
-  const { id, title, media, endsAt, bids, _count } = listingData;
+  const { id, title, media, bids, _count } = listingData;
 
   //   const lastBid = bids[bids.length - 1];
   const { 0: firstBid, length, [length - 1]: lastBid } = bids;
@@ -85,11 +83,31 @@ export function listingTemplate(listingData) {
     cardTextNewestBid.innerText = `$${lastBid.amount}`;
   }
 
-  // (child of cardTextContainer)
-  const cardTextTimeLeft = document.createElement("small");
-  cardTextTimeLeft.className = "text-danger ms-1";
-  //   let bidEnds = countDownDate(endsAt);
-  cardTextTimeLeft.innerText = `${endTime(endsAt)}`;
+  // create time left container and spans (child of cardTextContainer)
+  const timeLeftContainer = document.createElement("small");
+  timeLeftContainer.className = "text-danger ms-2 timeLeft";
+  timeLeftContainer.setAttribute("id", `timeLeft${id}`);
+  const spanDays = document.createElement("span");
+  spanDays.className = "days";
+  const spanD = document.createElement("span");
+  spanD.innerText = " d ";
+  const spanHours = document.createElement("span");
+  spanHours.className = "hours";
+  const spanH = document.createElement("span");
+  spanH.innerText = " h ";
+  const spanMinutes = document.createElement("span");
+  spanMinutes.className = "minutes";
+  const spanM = document.createElement("span");
+  spanM.innerText = " m left";
+
+  timeLeftContainer.append(
+    spanDays,
+    spanD,
+    spanHours,
+    spanH,
+    spanMinutes,
+    spanM
+  );
 
   // create button to see listing (child of cardBodyDiv)
   const btnListing = document.createElement("button");
@@ -103,7 +121,7 @@ export function listingTemplate(listingData) {
   });
 
   // Appending elemnts to parent elements
-  cardTextContainer.append(cardTextBid, cardTextNewestBid, cardTextTimeLeft);
+  cardTextContainer.append(cardTextBid, cardTextNewestBid, timeLeftContainer);
   imgDiv.appendChild(cardImg);
   cardBodyDiv.append(cardTitleContainer, cardTextContainer, btnListing);
   cardDiv.append(imgDiv, cardBodyDiv);

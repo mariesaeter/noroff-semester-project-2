@@ -1,5 +1,6 @@
 import { readLimitListings } from "../api/read/listings.mjs";
 import { renderAllListingsTemplate } from "../templates/allListings.mjs";
+import { endTime, initializeTime } from "../tools/formatDate.mjs";
 
 export async function displayListings() {
   const listingsContainer = document.getElementById("listingContainer");
@@ -14,6 +15,12 @@ export async function displayListings() {
     renderAllListingsTemplate(listings, listingsContainer);
 
     prevButton.classList.add("d-none");
+
+    // add the time left of the bid
+    listings.forEach((listing) => {
+      const dateEnd = endTime(listing.endsAt);
+      initializeTime(`timeLeft${listing.id}`, dateEnd);
+    });
   }
 
   nextButton.addEventListener("click", async () => {
@@ -22,6 +29,12 @@ export async function displayListings() {
     prevButton.classList.remove("d-none");
     const listings = await readLimitListings(20, currentPage);
     renderAllListingsTemplate(listings, listingsContainer);
+
+    // add the time left of the bid
+    listings.forEach((listing) => {
+      const dateEnd = endTime(listing.endsAt);
+      initializeTime(`timeLeft${listing.id}`, dateEnd);
+    });
   });
 
   prevButton.addEventListener("click", async () => {
@@ -34,6 +47,12 @@ export async function displayListings() {
     if (currentPage === 1) {
       prevButton.classList.add("d-none");
     }
+
+    // add the time left of the bid
+    listings.forEach((listing) => {
+      const dateEnd = endTime(listing.endsAt);
+      initializeTime(`timeLeft${listing.id}`, dateEnd);
+    });
   });
 
   // const pageNumber = document.createElement("button");
