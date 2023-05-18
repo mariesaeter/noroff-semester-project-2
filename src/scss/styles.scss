@@ -72,3 +72,10 @@ input:focus {
   object-fit: contain;
   max-height: 350px;
 }
+
+.card-img {
+  border-radius: 0;
+  width: 130px;
+  height: 160px;
+  object-fit: cover;
+}

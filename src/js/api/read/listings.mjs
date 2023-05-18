@@ -19,6 +19,23 @@ export async function readListings() {
   }
 }
 
+export async function readLimitListings(limit, currentPage) {
+  try {
+    const response = await fetch(
+      `${api_Listings}/${api_Listings_parameters}&limit=${limit}&offset=${
+        limit * currentPage
+      }`
+    );
+
+    const listings = await response.json();
+    console.log(listings);
+
+    return listings;
+  } catch (error) {
+    console.log(error);
+  }
+}
+
 /**
  * GET request to fetch a single listing by its id
  * @param {string} id - of listing
