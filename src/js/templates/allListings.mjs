@@ -112,6 +112,14 @@ export function listingTemplate(listingData) {
   return mainDiv;
 }
 
+/**
+ * Render template for a singular post and appends to html container
+ * @param {Object} postData - post data from api
+ * @param {Object} parent - html container
+ */
+export function renderListingTemplate(listingData, parent) {
+  parent.append(listingTemplate(listingData));
+}
 // export function renderListingTemplates(listingData, parent) {
 //   listingData.every((listingData, index) => {
 //     if (index > 30) {

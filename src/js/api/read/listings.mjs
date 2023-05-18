@@ -19,10 +19,12 @@ export async function readListings() {
   }
 }
 
-export async function readLimitListings(offset) {
+export async function readLimitListings(limit, currentPage) {
   try {
     const response = await fetch(
-      `${api_Listings}/${api_Listings_parameters}&limit=20&offset=${offset}`
+      `${api_Listings}/${api_Listings_parameters}&limit=${limit}&offset=${
+        limit * currentPage
+      }`
     );
 
     const listings = await response.json();
