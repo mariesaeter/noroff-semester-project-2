@@ -10,6 +10,7 @@ export async function displayListing() {
   console.log(listing);
 
   const listingContainer = document.getElementById("listing-Container");
+  listingContainer.innerHTML = "";
 
   renderViewListingTemplate(listing, listingContainer);
 
