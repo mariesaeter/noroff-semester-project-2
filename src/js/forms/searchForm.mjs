@@ -1,4 +1,5 @@
 import { renderAllListingsTemplate } from "../templates/allListings.mjs";
+import { renderEndTime } from "../tools/formatDate.mjs";
 
 /**
  * Displays posts filtered by search input
@@ -52,9 +53,18 @@ export function setSearchForm(listings) {
         }
       });
       const results = document.getElementById("listingContainer");
+      const searchTerm = document.getElementById("search-word");
+      const searchNumber = document.getElementById("search-number");
+      const searchResultsText = document.getElementById("search-results");
+
+      searchResultsText.classList.remove("d-none");
+      searchTerm.innerHTML = searchWord;
+      searchNumber.innerHTML = filteredListings.length;
+
       if (filteredListings.length) {
         results.innerHTML = "";
         renderAllListingsTemplate(filteredListings, results);
+        renderEndTime(filteredListings);
       } else {
         results.innerHTML = "No listings match your search";
       }

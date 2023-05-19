@@ -92,3 +92,14 @@ export function bidTime(timeBidCreated) {
 
   return date;
 }
+
+/**
+ * Renders the end time and countdown to html
+ * @param {array} element | array list of listings
+ */
+export function renderEndTime(element) {
+  element.forEach((el) => {
+    const dateEnd = endTime(el.endsAt);
+    initializeTime(`timeLeft${el.id}`, dateEnd);
+  });
+}

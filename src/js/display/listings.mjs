@@ -1,6 +1,6 @@
 import { readLimitListings } from "../api/read/listings.mjs";
 import { renderAllListingsTemplate, addLoader } from "../templates/index.mjs";
-import { endTime, initializeTime } from "../tools/formatDate.mjs";
+import { renderEndTime } from "../tools/formatDate.mjs";
 
 /**
  * Displays listings on the home page by limiting the amount of listings on each page
@@ -18,10 +18,7 @@ export async function displayListings() {
     renderAllListingsTemplate(listings, listingsContainer);
 
     // add the time left of the bid
-    listings.forEach((listing) => {
-      const dateEnd = endTime(listing.endsAt);
-      initializeTime(`timeLeft${listing.id}`, dateEnd);
-    });
+    renderEndTime(listings);
   }
   let newLimit = 20;
   // Addeventlistener for the next button. Makes new api calls when clicked and displays the prev button.
@@ -33,10 +30,7 @@ export async function displayListings() {
     renderAllListingsTemplate(listings, listingsContainer);
 
     // add the time left of the bid
-    listings.forEach((listing) => {
-      const dateEnd = endTime(listing.endsAt);
-      initializeTime(`timeLeft${listing.id}`, dateEnd);
-    });
+    renderEndTime(listings);
 
     if (newLimit === 100) {
       nextButton.classList.add("d-none");
