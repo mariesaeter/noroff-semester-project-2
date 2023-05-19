@@ -1,6 +1,11 @@
 import { bidTime } from "../tools/formatDate.mjs";
 import { notAccess } from "../tools/notLoggedIn.mjs";
 
+/**
+ * Creates template for a specific listing
+ * @param {object} listingData | Object with the data of the listing
+ * @returns Html template for listing in one main div.
+ */
 export function viewListingTemplate(listingData) {
   const { title, media, description, bids, _count, seller } = listingData;
 

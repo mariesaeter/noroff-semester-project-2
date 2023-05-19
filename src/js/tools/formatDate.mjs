@@ -21,7 +21,6 @@ export function endTime(listingEndDate) {
     new Date(listingEndDate)
   );
 
-  console.log(date);
   return date;
 }
 

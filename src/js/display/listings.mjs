@@ -1,16 +1,18 @@
 import { readLimitListings } from "../api/read/listings.mjs";
-import { renderAllListingsTemplate } from "../templates/allListings.mjs";
-import { addLoader } from "../templates/loader.mjs";
+import { renderAllListingsTemplate, addLoader } from "../templates/index.mjs";
 import { endTime, initializeTime } from "../tools/formatDate.mjs";
 
+/**
+ * Displays listings on the home page by limiting the amount of listings on each page
+ */
 export async function displayListings() {
   const listingsContainer = document.getElementById("listingContainer");
   const nextButton = document.getElementById("nextButton");
   const prevButton = document.getElementById("prevButton");
-  // const paginationNumbers = document.getElementById("paginationNumbers");
 
   let currentPage = 1;
 
+  // Renders the first page and hides the prev button
   if (currentPage === 1) {
     const listings = await readLimitListings(20, currentPage);
     renderAllListingsTemplate(listings, listingsContainer);
@@ -24,6 +26,7 @@ export async function displayListings() {
     });
   }
 
+  // Addeventlistener for the next button. Makes new api calls when clicked and displays the prev button.
   nextButton.addEventListener("click", async () => {
     listingsContainer.innerHTML = "";
     addLoader(listingsContainer);
@@ -39,6 +42,7 @@ export async function displayListings() {
     });
   });
 
+  // Addeventlistener for the prev button. Makes new api calls when clicked.
   prevButton.addEventListener("click", async () => {
     listingsContainer.innerHTML = "";
     addLoader(listingsContainer);
@@ -57,12 +61,4 @@ export async function displayListings() {
       initializeTime(`timeLeft${listing.id}`, dateEnd);
     });
   });
-
-  // const pageNumber = document.createElement("button");
-  // pageNumber.className = "paginationNumber page-link";
-  // pageNumber.innerHTML = currentPage;
-  // pageNumber.setAttribute("page-index", currentPage);
-  // pageNumber.setAttribute("aria-label", "Page" + currentPage);
-
-  // paginationNumbers.appendChild(pageNumber);
 }

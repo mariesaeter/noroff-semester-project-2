@@ -7,6 +7,7 @@ export const api_Listings_parameters = `?_active=true&sort=created&sortOrder=des
 export const api_Listings_sort_parameters = `?_active=true&sort=endsAt&sortOrder=asc&_seller=true&_bids=true`;
 export const api_Profiles = `${api_Url_Base}/profiles`;
 
+// Methods
 export const methodPost = "post";
 export const methodPut = "put";
 export const methodDelete = "delete";

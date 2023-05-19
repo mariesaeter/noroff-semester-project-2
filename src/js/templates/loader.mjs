@@ -1,6 +1,7 @@
-/* <div class="col-12 d-flex p-5 m-5 justify-content-center">
-              <div class="dot" id="api-loader"></div>
-            </div> */
+/**
+ * Creates a template for the api loader
+ * @returns api loader in a div
+ */
 export function loaderTemplate() {
   const loaderDiv = document.createElement("div");
   loaderDiv.className = "col-12 d-flex p-5 m-5 justify-content-center";
@@ -14,6 +15,10 @@ export function loaderTemplate() {
   return loaderDiv;
 }
 
+/**
+ * Adds loader to parent container
+ * @param {object} parent | A DOM-container
+ */
 export function addLoader(parent) {
   parent.appendChild(loaderTemplate());
 }

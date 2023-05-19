@@ -3,6 +3,9 @@ import { updateAvatar } from "../api/update/avatar.mjs";
 import { loadLocal, saveLocal } from "../storage/index.mjs";
 import { reloadCurrentPage } from "../tools/pageLoaders.mjs";
 
+/**
+ * Sets form listener to update avatar image
+ */
 export async function setUpdateAvatarListener() {
   const form = document.querySelector("#avatarForm");
   const url = new URL(location.href);

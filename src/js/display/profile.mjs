@@ -2,6 +2,9 @@ import { readProfile } from "../api/read/profile.mjs";
 import { removeLocal } from "../storage/index.mjs";
 import { redirect } from "../tools/pageLoaders.mjs";
 
+/**
+ * Displays profile to the profile page in html based on your profile name
+ */
 export async function displayProfile() {
   const url = new URL(location.href);
   const userName = url.searchParams.get("name");

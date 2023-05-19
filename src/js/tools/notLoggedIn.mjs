@@ -14,6 +14,11 @@ export function notAccess(element) {
   }
 }
 
+/**
+ * Rerouts unregistered users when clicking on links that they don't have access to
+ * @param {object} element | DOM object that originally links to a page that is unaccessable for unregistered users
+ * @param {*} href | New route to link
+ */
 export function notAccessReroute(element, href) {
   const body = document.querySelector("body");
   const el = document.querySelector(element);

@@ -2,8 +2,11 @@ import { saveLocal } from "../storage/index.mjs";
 import { methodPost as method } from "../tools/constants.mjs";
 import { api_Login } from "../tools/constants.mjs";
 import { redirect } from "../tools/pageLoaders.mjs";
-// import { saveLocal } from "../storage/index.mjs";
 
+/**
+ * POST request to log in in user if user is registered in the API with a @stud.noroff.no or @noroff.no account
+ * @param {object} user | Object of a user containing email and password
+ */
 export async function loginUser(user) {
   const body = JSON.stringify(user);
 

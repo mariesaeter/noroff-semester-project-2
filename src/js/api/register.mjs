@@ -4,9 +4,9 @@ import * as bootstrap from "/node_modules/bootstrap/dist/js/bootstrap.js";
 window.bootstrap = bootstrap;
 
 /**
- *
+ * POST request that registeres an account if the user has an accepted email (@noroff.no or @stud.noroff.no)
  * @param {Object} user | Data from form input gathered in "../forms/setRegisterForm.mjs"
- * @returns
+ * @returns json
  */
 export async function registerUser(user) {
   const body = JSON.stringify(user);

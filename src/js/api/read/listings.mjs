@@ -1,8 +1,4 @@
-import {
-  api_Listings,
-  api_Listings_parameters,
-  api_Listings_sort_parameters,
-} from "../../tools/constants.mjs";
+import * as API from "../../tools/constants.mjs";
 
 /**
  * GET request fetching all active listings from API
@@ -10,7 +6,9 @@ import {
  */
 export async function readListings() {
   try {
-    const response = await fetch(`${api_Listings}/${api_Listings_parameters}`);
+    const response = await fetch(
+      `${API.api_Listings}/${API.api_Listings_parameters}`
+    );
 
     const listings = await response.json();
 
@@ -20,30 +18,33 @@ export async function readListings() {
   }
 }
 
+/**
+ * GET request that fetches a limited amount of listings from API with a calculated offset based on which page in pagination we are on.
+ * @param {number} limit | The number of listings you want to fetch in one call
+ * @param {number} currentPage | The page of listings you want to retrieve (calulates an offset based on the set limit)
+ * @returns A specified number of listings based on limit, sorted by day created or ending soon depending on switch
+ */
 export async function readLimitListings(limit, currentPage) {
   try {
     const switchSort = document.getElementById("switchCheckSort");
     if (switchSort.value === "on") {
       const response = await fetch(
-        `${api_Listings}/${api_Listings_sort_parameters}&limit=${limit}&offset=${
-          limit * currentPage
-        }`
+        `${API.api_Listings}/${
+          API.api_Listings_sort_parameters
+        }&limit=${limit}&offset=${limit * currentPage}`
       );
 
       const listings = await response.json();
-      console.log(listings);
 
       return listings;
     } else {
       const response = await fetch(
-        `${api_Listings}/${api_Listings_parameters}&limit=${limit}&offset=${
-          limit * currentPage
-        }`
+        `${API.api_Listings}/${
+          API.api_Listings_parameters
+        }&limit=${limit}&offset=${limit * currentPage}`
       );
 
       const listings = await response.json();
-      console.log(listings);
-
       return listings;
     }
   } catch (error) {
@@ -59,7 +60,7 @@ export async function readLimitListings(limit, currentPage) {
 export async function readListing(id) {
   try {
     const response = await fetch(
-      `${api_Listings}/${id}/${api_Listings_parameters}`
+      `${API.api_Listings}/${id}/${API.api_Listings_parameters}`
     );
 
     const listing = await response.json();

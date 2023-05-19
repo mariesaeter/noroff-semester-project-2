@@ -1,6 +1,9 @@
 import { displayListings } from "../display/listings.mjs";
 import { addLoader } from "../templates/loader.mjs";
 
+/**
+ * Sets addeventlisteneer to the bootstrap switch, switching the value when changed.
+ */
 export async function switchSort() {
   const listingContainer = document.getElementById("listingContainer");
   const switchSort = document.getElementById("switchCheckSort");

@@ -2,12 +2,14 @@ import { readListing } from "../api/read/listings.mjs";
 import { renderViewListingTemplate } from "../templates/listing.mjs";
 import { endTime, initializeTime } from "../tools/formatDate.mjs";
 
+/**
+ * Displays a listing by id in the HTML
+ */
 export async function displayListing() {
   const url = new URL(location.href);
   const id = url.searchParams.get("id");
 
   const listing = await readListing(id);
-  console.log(listing);
 
   const listingContainer = document.getElementById("listing-Container");
   listingContainer.innerHTML = "";

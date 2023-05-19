@@ -17,7 +17,6 @@ export function setCreateListingFormListener() {
     listing.media = listing.media.split(",");
 
     if (listing.title.length > 1) {
-      console.log(listing);
       createListing(listing);
     }
   });

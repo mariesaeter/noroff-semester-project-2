@@ -8,7 +8,7 @@ export function saveLocal(key, value) {
 }
 
 /**
- *
+ * Get saved item from local storage
  * @param {string} key | name of the saved value in local storage
  * @returns value
  */
@@ -22,7 +22,7 @@ export function loadLocal(key) {
 }
 
 /**
- *
+ *Remove iten from local storage
  * @param {string} key | name of the saved value in local storage that you want to delete
  */
 export function removeLocal(key) {
