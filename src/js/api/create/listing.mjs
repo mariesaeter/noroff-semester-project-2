@@ -16,6 +16,11 @@ export async function createListing(listingData) {
       body,
     });
 
+    if (response.ok) {
+      const success = document.getElementById("valid-create");
+      success.innerText = "Your listing was created successfully!";
+    }
+
     return await response.json();
   } catch (error) {
     console.log(error);

@@ -25,13 +25,23 @@ export async function readListings() {
  */
 export async function readLimitListings(limit) {
   try {
-    const response = await fetch(
-      `${API.api_Listings}/${API.api_Listings_parameters}&limit=${limit}`
-    );
+    const switchSort = document.getElementById("switchCheckSort");
+    if (switchSort.value === "on") {
+      const response = await fetch(
+        `${API.api_Listings}/${API.api_Listings_sort_parameters}&limit=${limit}`
+      );
 
-    const listings = await response.json();
+      const listings = await response.json();
 
-    return listings;
+      return listings;
+    } else {
+      const response = await fetch(
+        `${API.api_Listings}/${API.api_Listings_parameters}&limit=${limit}`
+      );
+
+      const listings = await response.json();
+      return listings;
+    }
   } catch (error) {
     console.log(error);
   }

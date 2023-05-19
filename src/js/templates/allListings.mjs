@@ -68,15 +68,15 @@ export function listingTemplate(listingData) {
   const spanDays = document.createElement("span");
   spanDays.className = "days";
   const spanD = document.createElement("span");
-  spanD.innerText = " d ";
+  spanD.innerText = "d ";
   const spanHours = document.createElement("span");
   spanHours.className = "hours";
   const spanH = document.createElement("span");
-  spanH.innerText = " h ";
+  spanH.innerText = "h ";
   const spanMinutes = document.createElement("span");
   spanMinutes.className = "minutes";
   const spanM = document.createElement("span");
-  spanM.innerText = " m left";
+  spanM.innerText = "m left";
 
   timeLeftContainer.append(
     spanDays,

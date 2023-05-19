@@ -1,7 +1,5 @@
 import { api_Register } from "../tools/constants.mjs";
 import { methodPost as method } from "../tools/constants.mjs";
-import * as bootstrap from "/node_modules/bootstrap/dist/js/bootstrap.js";
-window.bootstrap = bootstrap;
 
 /**
  * POST request that registeres an account if the user has an accepted email (@noroff.no or @stud.noroff.no)
@@ -23,8 +21,8 @@ export async function registerUser(user) {
     const json = await response.json();
 
     if (response.ok) {
-      const successModal = new bootstrap.Modal("#registerSuccessModal");
-      successModal.show();
+      const success = document.getElementById("valid-register");
+      success.innerText = "Your account was registered successfully!";
     }
 
     return json;
