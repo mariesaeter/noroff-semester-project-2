@@ -8,16 +8,14 @@ import { endTime, initializeTime } from "../tools/formatDate.mjs";
 export async function displayListings() {
   const listingsContainer = document.getElementById("listingContainer");
   const nextButton = document.getElementById("nextButton");
-  const prevButton = document.getElementById("prevButton");
 
   let currentPage = 1;
 
   // Renders the first page and hides the prev button
   if (currentPage === 1) {
-    const listings = await readLimitListings(20, currentPage);
-    renderAllListingsTemplate(listings, listingsContainer);
+    const listings = await readLimitListings(20);
 
-    prevButton.classList.add("d-none");
+    renderAllListingsTemplate(listings, listingsContainer);
 
     // add the time left of the bid
     listings.forEach((listing) => {
@@ -25,14 +23,13 @@ export async function displayListings() {
       initializeTime(`timeLeft${listing.id}`, dateEnd);
     });
   }
-
+  let newLimit = 20;
   // Addeventlistener for the next button. Makes new api calls when clicked and displays the prev button.
   nextButton.addEventListener("click", async () => {
-    listingsContainer.innerHTML = "";
+    // listingsContainer.innerHTML = "";
     addLoader(listingsContainer);
-    currentPage++;
-    prevButton.classList.remove("d-none");
-    const listings = await readLimitListings(20, currentPage);
+    newLimit += 20;
+    const listings = await readLimitListings(newLimit);
     renderAllListingsTemplate(listings, listingsContainer);
 
     // add the time left of the bid
@@ -40,25 +37,9 @@ export async function displayListings() {
       const dateEnd = endTime(listing.endsAt);
       initializeTime(`timeLeft${listing.id}`, dateEnd);
     });
-  });
 
-  // Addeventlistener for the prev button. Makes new api calls when clicked.
-  prevButton.addEventListener("click", async () => {
-    listingsContainer.innerHTML = "";
-    addLoader(listingsContainer);
-    currentPage--;
-
-    const listings = await readLimitListings(20, currentPage);
-    renderAllListingsTemplate(listings, listingsContainer);
-
-    if (currentPage === 1) {
-      prevButton.classList.add("d-none");
+    if (newLimit === 100) {
+      nextButton.classList.add("d-none");
     }
-
-    // add the time left of the bid
-    listings.forEach((listing) => {
-      const dateEnd = endTime(listing.endsAt);
-      initializeTime(`timeLeft${listing.id}`, dateEnd);
-    });
   });
 }

@@ -18,6 +18,12 @@ export function setCreateListingFormListener() {
 
     if (listing.title.length > 1) {
       createListing(listing);
+      if (createListing(listing)) {
+        const btn = document.getElementById("btn-submit-create");
+        const modalSuccess = document.getElementById("listingSuccessModal");
+        btn.setAttribute("data-bs-toggle", "modal");
+        modalSuccess.modal("show");
+      }
     }
   });
 }

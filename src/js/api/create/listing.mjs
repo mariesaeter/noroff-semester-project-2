@@ -16,13 +16,6 @@ export async function createListing(listingData) {
       body,
     });
 
-    if (response.ok) {
-      const btn = document.getElementById("btn-submit-create");
-      btn.setAttribute("data-bs-toggle", "modal");
-
-      btn.addEventListener("click", () => {});
-    }
-
     return await response.json();
   } catch (error) {
     console.log(error);

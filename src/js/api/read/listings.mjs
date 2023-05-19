@@ -21,32 +21,17 @@ export async function readListings() {
 /**
  * GET request that fetches a limited amount of listings from API with a calculated offset based on which page in pagination we are on.
  * @param {number} limit | The number of listings you want to fetch in one call
- * @param {number} currentPage | The page of listings you want to retrieve (calulates an offset based on the set limit)
  * @returns A specified number of listings based on limit, sorted by day created or ending soon depending on switch
  */
-export async function readLimitListings(limit, currentPage) {
+export async function readLimitListings(limit) {
   try {
-    const switchSort = document.getElementById("switchCheckSort");
-    if (switchSort.value === "on") {
-      const response = await fetch(
-        `${API.api_Listings}/${
-          API.api_Listings_sort_parameters
-        }&limit=${limit}&offset=${limit * currentPage}`
-      );
+    const response = await fetch(
+      `${API.api_Listings}/${API.api_Listings_parameters}&limit=${limit}`
+    );
 
-      const listings = await response.json();
+    const listings = await response.json();
 
-      return listings;
-    } else {
-      const response = await fetch(
-        `${API.api_Listings}/${
-          API.api_Listings_parameters
-        }&limit=${limit}&offset=${limit * currentPage}`
-      );
-
-      const listings = await response.json();
-      return listings;
-    }
+    return listings;
   } catch (error) {
     console.log(error);
   }
