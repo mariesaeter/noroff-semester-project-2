@@ -1,0 +1,154 @@
+@import "variables";
+@import "nav";
+@import "../../node_modules/bootstrap/scss/bootstrap";
+
+main {
+  position: relative;
+  top: 66px;
+  min-height: calc(100vh - 66px);
+}
+
+input:focus {
+  outline: none;
+  box-shadow: inset 1em 0em $secondary;
+}
+.form-inputs:focus {
+  border-left: solid 20px $secondary;
+}
+
+.logo {
+  height: 50px;
+}
+
+// Navbar
+.navbar-toggler {
+  height: 32px;
+}
+
+.icon-bar {
+  display: block;
+  width: 30px;
+  height: 3px;
+  background-color: #000;
+  transition: all 500ms ease-in-out;
+}
+
+.navbar-toggler:not(.collapsed) .icon-bar:nth-of-type(1) {
+  transform: translateY(10px) rotate(45deg);
+}
+
+.navbar-toggler:not(.collapsed) .icon-bar:nth-of-type(2) {
+  background-color: transparent;
+}
+
+.navbar-toggler:not(.collapsed) .icon-bar:nth-of-type(3) {
+  transform: translateY(-10px) rotate(-45deg);
+}
+
+// buttons
+.btn {
+  letter-spacing: 0.075rem;
+}
+
+.avatar-img {
+  width: 250px;
+  height: 250px;
+  object-fit: cover;
+}
+
+.indicatorImage {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+}
+
+.carouselIndicator {
+  width: 80px !important;
+}
+
+.carousel-item {
+  max-height: 350px;
+}
+
+.carousel-item img {
+  object-fit: contain;
+  max-height: 350px;
+}
+
+.card-img {
+  border-radius: 0;
+  width: 130px;
+  height: 160px;
+  object-fit: cover;
+}
+
+// Loader
+// inspired by https://css-tricks.com/single-element-loaders-the-dots/
+.dot {
+  width: 80px;
+  height: 40px;
+  mask: radial-gradient(farthest-side, currentColor 90%, #0000),
+    radial-gradient(farthest-side, currentColor 90%, #0000),
+    radial-gradient(farthest-side, currentColor 90%, #0000);
+  mask-size: 20px 20px;
+  mask-repeat: no-repeat;
+  background: linear-gradient(
+    to bottom,
+    $purple-300,
+    $purple-300 50%,
+    $secondary 50%,
+    $secondary
+  );
+  background-size: 100%;
+  background-repeat: no-repeat;
+  animation: maskLoad 2s infinite;
+}
+
+@keyframes maskLoad {
+  0% {
+    mask-position: calc(0 * 100% / 2) 100%, calc(1 * 100% / 2) 100%,
+      calc(2 * 100% / 2) 100%;
+    color: $secondary;
+  }
+  16.6666667% {
+    mask-position: calc(0 * 100% / 2) 0, calc(1 * 100% / 2) 100%,
+      calc(2 * 100% / 2) 100%;
+  }
+  33.3333334% {
+    mask-position: calc(0 * 100% / 2) 0, calc(1 * 100% / 2) 0,
+      calc(2 * 100% / 2) 100%;
+  }
+  50.0000001% {
+    mask-position: calc(0 * 100% / 2) 0, calc(1 * 100% / 2) 0,
+      calc(2 * 100% / 2) 0;
+  }
+  66.6666668% {
+    mask-position: calc(0 * 100% / 2) 100%, calc(1 * 100% / 2) 0,
+      calc(2 * 100% / 2) 0;
+  }
+  83.3333335% {
+    mask-position: calc(0 * 100% / 2) 100%, calc(1 * 100% / 2) 100%,
+      calc(2 * 100% / 2) 0;
+  }
+  100% {
+    mask-position: calc(0 * 100% / 2) 100%, calc(1 * 100% / 2) 100%,
+      calc(2 * 100% / 2) 100%;
+  }
+}
+
+// .api-shelf {
+//   width: 110px;
+//   height: 7px;
+// }
+
+// .books {
+//   width: 100px;
+// }
+
+// .api-book {
+//   width: 10px;
+//   height: 100px;
+//   background: linear-gradient(45deg, $secondary, $purple-300);
+//   margin: 5px;
+//   animation: ;
+// }

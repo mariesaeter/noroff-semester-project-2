@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Home page of Bokmynt" />
+    <title>Bokmynt | Home</title>
+    <!-- Website icon -->
+    <link
+      rel="icon"
+      type="image/svg"
+      sizes="16x16"
+      href="/src/images/bokvenn-logo.png"
+    />
+    <link
+      rel="icon"
+      type="image/svg"
+      sizes="32x32"
+      href="/src/images/bokvenn-logo.png"
+    />
+    <!-- Bootstrap css -->
+    <link rel="stylesheet" href="/dist/css/styles.css" />
+    <script
+      defer
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
+      crossorigin="anonymous"
+    ></script>
+    <!-- Fontawesome free icon kit -->
+    <script
+      src="https://kit.fontawesome.com/a2324745d3.js"
+      crossorigin="anonymous"
+    ></script>
+    <!-- Js script -->
+    <script type="module" src="/src/js/index.mjs" defer></script>
+  </head>
+  <body>
+    <header>
+      <nav class="navbar navbar-expand-lg fixed-top p-0 bg-light shadow-sm">
+        <div class="container-fluid p-0">
+          <a
+            class="navbar-brand text-uppercase bg-primary p-2 d-flex align-content-center m-lg-0 ms-lg-5"
+            href="/"
+            ><img class="logo" src="/src/images/bokvenn-logo.png" />
+            <p class="d-none d-md-block m-0 align-self-center ps-2">BOKMYNT</p>
+          </a>
+          <div
+            class="nav-item nav-profile align-self-lg-center d-lg-none small ms-auto"
+          >
+            Hi <span class="nav-profile-name"></span>
+          </div>
+          <button
+            class="navbar-toggler border-0 shadow-none collapsed d-flex flex-column justify-content-between d-lg-none"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#hamburgerNav"
+            aria-label="open main menu"
+          >
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <div
+            class="collapse navbar-collapse align-self-lg-stretch"
+            id="hamburgerNav"
+          >
+            <ul
+              class="navbar-nav ml-auto bg-body py-2 px-4 w-100 me-lg-5 align-self-lg-stretch"
+            >
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="/">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" id="link-profile-page" href="/login/"
+                  >Profile page</a
+                >
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" id="link-listing-create" href="/login/"
+                  >Create listing</a
+                >
+              </li>
+              <li
+                class="nav-item nav-profile align-self-lg-center ms-lg-5 small order-first order-lg-last ms-lg-auto"
+              >
+                Hi <span class="nav-profile-name"></span> | Credits:
+                <span class="nav-profile-credits text-secondary"></span>
+              </li>
+              <div
+                id="registerAndSignIn"
+                class="d-flex mt-3 mt-lg-0 align-self-lg-center small ms-lg-auto d-none"
+              >
+                <li class="nav-item">
+                  <a class="text-decoration-none" href="/login/">Sign in</a>
+                </li>
+                <span class="mx-1">or</span>
+                <li class="nav-item">
+                  <a class="text-decoration-none" href="/register/">Register</a>
+                </li>
+              </div>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <main>
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-12 col-lg-10 mx-0 px-0">
+            <form class="w-100 d-flex" id="searchForm">
+              <input
+                type="search"
+                name="searchWord"
+                class="form control ps-4 pe-2 py-1 border-0 border-bottom w-100"
+                placeholder="Search"
+                aria-label="Search"
+              />
+              <button
+                type="submit"
+                class="btn btn-light px-4 rounded-0 bg-info border-0 border-bottom text-muted"
+              >
+                search
+              </button>
+            </form>
+          </div>
+        </div>
+        <h1 class="text-center mt-3 mb-2">Listings</h1>
+        <div class="container p-md-0">
+          <div class="text-center d-none" id="search-results">
+            <h2>
+              Your search:
+              <span class="text-secondary" id="search-word"></span>
+            </h2>
+            <small>gave <span id="search-number"></span> results</small>
+          </div>
+          <form id="switchSort" class="ms-lg-5 ps-lg-3 pb-2">
+            <div class="form-check form-switch">
+              <input
+                class="form-check-input"
+                type="checkbox"
+                role="switch"
+                data-toggle="toggle"
+                id="switchCheckSort"
+                value="off"
+              />
+              <label class="form-check-label" for="#switchCheckSort"
+                >View listings that will end soon</label
+              >
+            </div>
+          </form>
+          <div
+            class="row row-cols-1 row-cols-md-2 justify-content-center mx-lg-5"
+            id="listingContainer"
+          >
+            <div class="col-12 d-flex p-5 m-5 justify-content-center">
+              <div class="dot" id="api-loader"></div>
+            </div>
+          </div>
+          <nav>
+            <ul class="pagination justify-content-center mt-2">
+              <li class="page-item">
+                <button class="page-link btn mb-5" id="nextButton">
+                  See more
+                </button>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </main>
+    <footer class="bg-light w-100 text-center mt-5">
+      <div class="container py-5">
+        <div class="row">
+          <div class="col">© Marie Sæter</div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

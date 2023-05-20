@@ -1,0 +1,135 @@
+// Variables
+
+// start gray-color-variables
+$gray-100: #fafafa;
+$gray-200: #ebebeb;
+$gray-900: #525252;
+$black: #171717;
+// end gray-color-variables
+
+// start color-variables
+$purple: #91557c;
+$green: #9cb168;
+$orange: #e86a02;
+$red: #d42222;
+// end color-variables
+
+// start fusv-disable
+$purple-200: #efe7ef;
+$purple-300: #e7dae7;
+$purple-400: #d2b2c7;
+$purple-600: #744463;
+
+$green-400: #dfe3ca;
+
+$green-600: #2c8f31;
+// end fusv-disable
+
+// start theme-color-variables
+$primary: $green;
+$secondary: $purple;
+$success: $green-600;
+$warning: $orange;
+$light: $green-400;
+$info: $gray-200;
+// end theme-color-variables
+
+// Body
+//
+// Settings for the `<body>` element.
+$body-bg: $gray-100;
+$body-color: $black;
+
+// Links
+//
+// Style anchor elements
+$link-color: $secondary;
+
+// Components
+//
+// Define common padding and border radius sizes and more.
+
+// start border-variables
+$border-width: 2px;
+$border-widths: (
+  10: 10px,
+  30: 30px,
+  50: 50px,
+);
+
+$border-color: $primary;
+$border-color-translucent: none;
+// end border-variables
+
+// start box-shadow-variables
+$box-shadow: 0 0.5rem 1.5rem rgba($gray-900, 0.15);
+// end box-shadow-variables
+
+// Typography
+//
+// font-family
+@import url("https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap");
+
+// start font-variables
+$font-family-sans-serif: "Karla", sans-serif;
+$font-family-monospace: "Karla", monospace;
+
+$font-size-base: 1.125rem;
+// end font-variables
+
+// start type-variables
+$text-muted: $gray-900;
+// end type-variables
+
+// Buttons + Forms
+//
+
+$input-btn-focus-box-shadow: none;
+
+// Buttons
+//
+// start btn-variables
+$btn-box-shadow: none;
+$btn-focus-box-shadow: none;
+// end btn-variables
+
+// Forms
+//
+// start form-label-variables
+$form-label-font-size: 1rem;
+$form-label-font-weight: 300;
+$form-label-color: $gray-900;
+// end form-label-variables
+
+// start form-input-variables
+
+$input-bg: #fff;
+$input-border-color: $green;
+$input-box-shadow: none;
+
+$input-focus-border-color: $secondary;
+$input-placeholder-color: $gray-900;
+
+$btn-font-weight: 300;
+// end form-input-variables
+
+// Navs
+//
+// start nav-variables
+$nav-link-font-weight: 700;
+$nav-link-color: $black;
+$nav-link-hover-color: $secondary;
+// end nav-variables
+
+// Navbar
+//
+// start navbar-variables
+$navbar-light-color: $black;
+// end navbar-variables
+
+// Modals
+//
+// start modal-variables
+$modal-content-bg: $gray-100;
+$modal-content-border-radius: 0.375rem;
+// end modal-variables

@@ -1,0 +1,55 @@
+{
+  "name": "noroff-semester-project-2",
+  "version": "0.0.10",
+  "description": "An auction page where you can sell and bid on items",
+  "type": "module",
+  "main": "/",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "format": "prettier -w src/**/*.js",
+    "lint": "eslint src/**/*.js",
+    "lint-fix": "eslint src/**/*js --cache --fix",
+    "prepare": "husky install",
+    "build": "sass src/scss:dist/css",
+    "watch": "sass --watch src/scss:dist/css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mariesaeter/noroff-semester-project-2.git"
+  },
+  "keywords": [
+    "css",
+    "bootstrap",
+    "SCSS/SASS",
+    "auction",
+    "website"
+  ],
+  "author": "Marie Sæter <marie.saeter@gmail.com>",
+  "license": "GPL-3.0-or-later",
+  "bugs": {
+    "url": "https://github.com/mariesaeter/noroff-semester-project-2/issues"
+  },
+  "homepage": "https://github.com/mariesaeter/noroff-semester-project-2#readme",
+  "devDependencies": {
+    "eslint": "^8.39.0",
+    "husky": "^8.0.3",
+    "lint-staged": "^13.2.2",
+    "prettier": "^2.8.8",
+    "sass": "^1.62.1"
+  },
+  "lint-staged": {
+    "*.js": [
+      "eslint --cache --fix",
+      "prettier --write"
+    ],
+    "*.html": [
+      "prettier --write"
+    ],
+    "*.scss": [
+      "prettier --write"
+    ]
+  },
+  "dependencies": {
+    "bootstrap": "^5.2.3"
+  }
+}
