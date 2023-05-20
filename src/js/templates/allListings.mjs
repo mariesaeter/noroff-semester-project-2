@@ -1,31 +1,9 @@
+/**
+ * Creates template for listing cards
+ * @param {object} listingData | Object with the data of the listing
+ * @returns Html template for listing cards in one main div.
+ */
 export function listingTemplate(listingData) {
-  // End result
-  // <div class="col">
-  //           <div
-  //             class="card my-2 border bg-transparent p-1 d-inline-flex w-100 flex-row"
-  //           >
-  //             <div class="bg-light rounded-start">
-  //               <div class="card-img" style="width: 125px">Image</div>
-  //             </div>
-  //             <div class="card-body w-100">
-  //               <h5 class="card-title">Card title</h5>
-  //               <p class="card-text">
-  //                 <span class="text-muted">bid: </span
-  //                 ><span id="current-bid" class="text-secondary fw-bold"
-  //                   >$7.43</span
-  //                 ><small id="bid-hours" class="text-danger ms-1"
-  //                   >(2 hours left)</small
-  //                 >
-  //               </p>
-  //               <a
-  //                 href="/src/listing/index.html"
-  //                 class="btn btn-secondary w-100 text-uppercase"
-  //                 >see listing</a
-  //               >
-  //             </div>
-  //           </div>
-  //         </div>
-
   const { id, title, media, bids, _count } = listingData;
 
   //   const lastBid = bids[bids.length - 1];
@@ -90,15 +68,15 @@ export function listingTemplate(listingData) {
   const spanDays = document.createElement("span");
   spanDays.className = "days";
   const spanD = document.createElement("span");
-  spanD.innerText = " d ";
+  spanD.innerText = "d ";
   const spanHours = document.createElement("span");
   spanHours.className = "hours";
   const spanH = document.createElement("span");
-  spanH.innerText = " h ";
+  spanH.innerText = "h ";
   const spanMinutes = document.createElement("span");
   spanMinutes.className = "minutes";
   const spanM = document.createElement("span");
-  spanM.innerText = " m left";
+  spanM.innerText = "m left";
 
   timeLeftContainer.append(
     spanDays,
@@ -131,59 +109,21 @@ export function listingTemplate(listingData) {
 }
 
 /**
- * Render template for a singular post and appends to html container
- * @param {Object} postData - post data from api
- * @param {Object} parent - html container
+ * Render template for a singular listing and appends to html container
+ * @param {Object} postData | listing data from api
+ * @param {Object} parent | html container
  */
 export function renderListingTemplate(listingData, parent) {
   parent.append(listingTemplate(listingData));
 }
-// export function renderListingTemplates(listingData, parent) {
-//   listingData.every((listingData, index) => {
-//     if (index > 30) {
-//       return false;
-//     }
-//     parent.append(listingTemplate(listingData));
-//     return true;
-//   });
-// }
 
-// export function renderListingTemplates(listingData, loadMoreBtn, parent) {
-//   for (let i = 0; i < listingData.length; i++) {}
-// const listings = listingData.length;
-// const listingsIncreaseBy = 20;
-// const pageCount = Math.ceil(listings / listingsIncreaseBy);
-// let currentPage = 1;
-
-// const btnStatus = () => {
-//   if (pageCount === currentPage) {
-//     loadMoreBtn.classList.add("disabled");
-//     loadMoreBtn.setAttribute("disabled", true);
-//   }
-// };
-
-// const addListings = (pageIndex) => {
-//   currentPage = pageIndex;
-//   btnStatus();
-// };
-
-// // const startRange = (pageIndex - 1) * listingsIncreaseBy;
-// // const endRange = pageIndex * listingsIncreaseBy > listings ? listings : pageIndex * listingsIncreaseBy;
-
-// // for (let i = startRange + 1; i <= endRange; i++) {
-// //   addListings(i);
-// // }
-// window.onload = function () {
-//   addListings(currentPage);
-//   loadMoreBtn.addEventListener("click", () => {
-//     addListings(currentPage + 1);
-//   });
-// };
-// listingData.forEach((listingData) => {
-//   parent.append(listingTemplate(listingData));
-// }
-
+/**
+ * Render template for all listings and appends to html container
+ * @param {Object} postData |listing data from api
+ * @param {Object} parent | html container
+ */
 export function renderAllListingsTemplate(listingData, parent) {
+  parent.innerHTML = "";
   listingData.forEach((listingData) => {
     parent.append(listingTemplate(listingData));
   });

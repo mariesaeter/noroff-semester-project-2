@@ -17,10 +17,8 @@ export async function createListing(listingData) {
     });
 
     if (response.ok) {
-      const btn = document.getElementById("btn-submit-create");
-      btn.setAttribute("data-bs-toggle", "modal");
-
-      btn.addEventListener("click", () => {});
+      const success = document.getElementById("valid-create");
+      success.innerText = "Your listing was created successfully!";
     }
 
     return await response.json();

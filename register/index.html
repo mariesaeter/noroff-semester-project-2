@@ -6,10 +6,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="Register page of Bokmynt" />
     <title>Bokmynt | Register</title>
-    <!-- Bootstrap -->
+    <!-- Website icon -->
+    <link
+      rel="icon"
+      type="image/svg"
+      sizes="16x16"
+      href="/src/images/bokvenn-logo.png"
+    />
+    <link
+      rel="icon"
+      type="image/svg"
+      sizes="32x32"
+      href="/src/images/bokvenn-logo.png"
+    />
     <!-- Bootstrap css -->
     <link rel="stylesheet" href="/dist/css/styles.css" />
-    <link href="/node_modules/bootstrap/dist/css/bootstrap.min.css" />
+    <script
+      defer
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
+      crossorigin="anonymous"
+    ></script>
     <!-- Fontawesome free icon kit -->
     <script
       src="https://kit.fontawesome.com/a2324745d3.js"
@@ -92,7 +109,7 @@
         </div>
       </nav>
     </header>
-    <main class="mx-3 my-4 pb-5 px-lg-5">
+    <main class="mx-3 my-4 px-lg-5">
       <div class="container">
         <div class="row m-0">
           <div class="col col-xl-5 bg-primary py-3 d-none d-xl-block p-lg-4">
@@ -180,46 +197,9 @@
                 </button>
               </form>
               <div
-                class="modal fade"
-                tabindex="-1"
-                id="registerSuccessModal"
-                aria-labelledby="registerSuccessLabel"
-                aria-hidden="true"
-              >
-                <div class="modal-dialog modal-dialog-centered">
-                  <div class="modal-content">
-                    <div class="modal-header">
-                      <h2 class="modal-title" id="registerSuccessLabel">
-                        Welcome to bokmynt!
-                      </h2>
-                      <button
-                        type="button"
-                        class="btn-close"
-                        data-bs-dismiss="modal"
-                        aria-label="Close"
-                      ></button>
-                    </div>
-                    <div class="modal-body">
-                      <p>You've now successfully registered a user</p>
-                    </div>
-                    <div class="modal-footer">
-                      <a
-                        class="btn btn-secondary px-4 rounded border-0 text-uppercase"
-                        href="/login/"
-                      >
-                        Login
-                      </a>
-                      <button
-                        type="button"
-                        class="btn btn-light text-uppercase"
-                        data-bs-dismiss="modal"
-                      >
-                        Close
-                      </button>
-                    </div>
-                  </div>
-                </div>
-              </div>
+                class="text-success fs-6 fw-bold mt-2"
+                id="valid-register"
+              ></div>
               <h2 class="mt-4 text-center">If you already have an account</h2>
               <div
                 class="d-flex mt-3 mt-lg-0 align-self-lg-center ms-lg-auto justify-content-center"
@@ -233,7 +213,7 @@
         </div>
       </div>
     </main>
-    <footer class="bg-light d-block w-100 text-center mt-5">
+    <footer class="bg-light w-100 text-center">
       <div class="container py-5">
         <div class="row">
           <div class="col">© Marie Sæter</div>

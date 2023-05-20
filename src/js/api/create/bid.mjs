@@ -1,6 +1,7 @@
 import { api_Listings } from "../../tools/constants.mjs";
 import { methodPost as method } from "../../tools/constants.mjs";
 import { fetchToken } from "../../tools/fetchToken.mjs";
+import { reloadCurrentPage } from "../../tools/pageLoaders.mjs";
 
 /**
  * Sends a POST request to bid on a listing
@@ -25,6 +26,7 @@ export async function createBid(id, bidAmount) {
     if (response.ok) {
       const success = document.getElementById("valid-bid");
       success.innerText = "Your bid came through!";
+      reloadCurrentPage();
     }
 
     return await response.json();

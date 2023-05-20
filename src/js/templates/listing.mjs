@@ -1,8 +1,13 @@
 import { bidTime } from "../tools/formatDate.mjs";
 import { notAccess } from "../tools/notLoggedIn.mjs";
 
+/**
+ * Creates template for a specific listing
+ * @param {object} listingData | Object with the data of the listing
+ * @returns Html template for listing in one main div.
+ */
 export function viewListingTemplate(listingData) {
-  const { title, media, description, bids, _count } = listingData;
+  const { title, media, description, bids, _count, seller } = listingData;
 
   //   const lastBid = bids[bids.length - 1];
   const { 0: firstBid, length, [length - 1]: lastBid } = bids;
@@ -15,6 +20,9 @@ export function viewListingTemplate(listingData) {
   const h1 = document.createElement("h1");
   const h1Text = document.createTextNode(title);
   h1.appendChild(h1Text);
+
+  const timeAndSellerContainer = document.createElement("div");
+  timeAndSellerContainer.className = "d-flex justify-content-between";
 
   // create time left container and spans (child of mainDiv)
   const timeLeftContainer = document.createElement("div");
@@ -41,6 +49,11 @@ export function viewListingTemplate(listingData) {
     spanMinutes,
     spanM
   );
+
+  // create seller p (child of mainDiv)
+  const sellerContainer = document.createElement("p");
+  const sellerText = document.createTextNode(`Seller: ${seller.name}`);
+  sellerContainer.appendChild(sellerText);
 
   // create carouselContainer (child of mainDiv)
   const carouselContainer = document.createElement("div");
@@ -320,12 +333,14 @@ export function viewListingTemplate(listingData) {
 
   // Create table head titles (child of tableHeadRow)
   const tableHeadTime = document.createElement("th");
+  tableHeadTime.className = "text-start";
   tableHeadTime.setAttribute("scope", "col");
   tableHeadTime.innerText = "Time";
 
   const tableHeadBidder = document.createElement("th");
+  tableHeadBidder.className = "text-start";
   tableHeadBidder.setAttribute("scope", "col");
-  tableHeadBidder.setAttribute("colspan", "4");
+  tableHeadBidder.setAttribute("colspan", "6");
   tableHeadBidder.innerText = "Bidder";
 
   const tableHeadBid = document.createElement("th");
@@ -338,8 +353,8 @@ export function viewListingTemplate(listingData) {
 
   for (let i = bids.length - 1; i >= 0; i--) {
     tableBody.innerHTML += `<tr>
-    <td>${bidTime(bids[i].created)}</td>
-    <td colspan="4">${bids[i].bidderName}</td>
+    <td class="text-start">${bidTime(bids[i].created)}</td>
+    <td class="text-start" colspan="6">${bids[i].bidderName}</td>
     <td class="text-end"><span class="bg-light py-1 px-2">$${
       bids[i].amount
     }</span></td>
@@ -429,8 +444,10 @@ export function viewListingTemplate(listingData) {
     btnBidHistory,
     bidHistoryModal
   );
+
+  timeAndSellerContainer.append(timeLeftContainer, sellerContainer);
   // appending main
-  mainDiv.append(h1, timeLeftContainer, carouselContainer, infoContainer);
+  mainDiv.append(h1, timeAndSellerContainer, carouselContainer, infoContainer);
 
   return mainDiv;
 }

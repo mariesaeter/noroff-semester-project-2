@@ -16,5 +16,5 @@ export function redirect(path) {
 export function reloadCurrentPage() {
   setTimeout(() => {
     location.reload();
-  }, 250);
+  }, 300);
 }
