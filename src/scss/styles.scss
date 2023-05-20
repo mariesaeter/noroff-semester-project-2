@@ -50,6 +50,10 @@ input:focus {
   letter-spacing: 0.075rem;
 }
 
+.large-img {
+  object-fit: cover;
+}
+
 .avatar-img {
   width: 250px;
   height: 250px;
