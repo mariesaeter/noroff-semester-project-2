@@ -203,6 +203,7 @@ export function viewListingTemplate(listingData) {
   btnBidForm.className =
     "btn btn-secondary px-4 rounded border-0 w-100 text-uppercase";
   btnBidForm.innerText = "Make bid";
+
   btnBidForm.setAttribute("type", "submit");
 
   const successBid = document.createElement("div");
