@@ -10786,6 +10786,10 @@ main {
   min-height: calc(100vh - 66px);
 }
 
+footer {
+  top: 30px;
+}
+
 input:focus {
   outline: none;
   box-shadow: inset 1em 0em #91557c;
