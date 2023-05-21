@@ -76,6 +76,7 @@ To use the skills from the three past semesters to create a front-end applicatio
 
 ## Issues
 + The switch that shows the latest bids has some issues in firefox when refreshing page (if the switch is on it stays on, but the listings does not). Works fine in safari.
++ Form validation on sign in page and register page shows that email is correct when email does not end with @noroff.no or @noroff.stud.no (The api only accepts these versions)
 
  ### Images and icons
  + All images are gathered from [unsplash.com](https://unsplash.com)
