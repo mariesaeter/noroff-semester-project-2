@@ -73,6 +73,7 @@ To use the skills from the three past semesters to create a front-end applicatio
 + Add display of the users listings on profile page
 + Add display of listings that the user have bid on on profile page
 + Add display of listings the user have won on profile page
++ If the image links on listings is undefined (add a placeholder)
 
 ## Issues
 + The switch that shows the latest bids has some issues in firefox when refreshing page (if the switch is on it stays on, but the listings does not). Works fine in safari.
