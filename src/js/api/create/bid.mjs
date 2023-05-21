@@ -1,6 +1,7 @@
 import { api_Listings } from "../../tools/constants.mjs";
 import { methodPost as method } from "../../tools/constants.mjs";
 import { fetchToken } from "../../tools/fetchToken.mjs";
+import { notAccessButton } from "../../tools/notLoggedIn.mjs";
 import { reloadCurrentPage } from "../../tools/pageLoaders.mjs";
 
 /**
@@ -17,13 +18,15 @@ export async function createBid(id, bidAmount) {
       body,
     });
 
-    if (!response.ok) {
+    notAccessButton();
+
+    if (!response.ok && notAccessButton() === false) {
       const error = await response.json();
       const feedbackContainer = document.getElementById("invalid-bid");
       feedbackContainer.innerText = `${error.errors[0].message}`;
     }
 
-    if (response.ok) {
+    if (response.ok && notAccessButton() === false) {
       const success = document.getElementById("valid-bid");
       success.innerText = "Your bid came through!";
       reloadCurrentPage();

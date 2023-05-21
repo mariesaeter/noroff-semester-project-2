@@ -1,3 +1,5 @@
+import { redirect } from "./pageLoaders.mjs";
+
 /**
  * Function that sets /login/ as href if user is not logged in
  * @param {element} element | a link that reroutes to login page if an unregistered user tries to access
@@ -8,6 +10,21 @@ export function notAccess(element) {
 
   if (body.classList.contains("notLoggedIn")) {
     element.setAttribute("href", "/login/");
+  }
+  if (!body.classList.contains("notLoggedIn")) {
+    return false;
+  }
+}
+
+/**
+ * Function that sets /login/ as href if user is not logged in
+ * @returns false if user is logged in
+ */
+export function notAccessButton() {
+  const body = document.querySelector("body");
+
+  if (body.classList.contains("notLoggedIn")) {
+    redirect("/login/");
   }
   if (!body.classList.contains("notLoggedIn")) {
     return false;
